@@ -17,8 +17,19 @@
     <string name="title_activity_device_bit_mode">Device BitMode</string>
     <string name="title_activity_device_bit_mode_service">Device BitMode Service</string>
     <string name="hex_digits_letter">0123456789abcdef</string>
-    
-    <string-array name="baud_rate">        
+
+	<string-array name="dl_descriptors">
+		<item>nFR RS232 CLASSIC (OEM)</item>
+		<item>nFR RS232 CLASSIC</item>
+		<item>nFR USB CLASSIC</item>
+		<item>uFR ADVANCE</item>
+		<item>uFR CLASSIC</item>
+		<item>uFR PRO</item>
+		<item>uFR XR CLASSICu</item>
+		<item>uFR XRC  CLASSIC</item>
+	</string-array>
+
+	<string-array name="baud_rate">
 		<item>300</item>        
 		<item>600</item>        
 		<item>1200</item>        
