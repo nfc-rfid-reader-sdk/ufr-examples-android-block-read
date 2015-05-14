@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.ftdi.java_d2xx_demo;
+package net.dlogic.android.uFR;
 
 public final class R {
     public static final class array {
@@ -13,13 +13,14 @@ public final class R {
         public static final int buffer_number=0x7f070001;
         public static final int buffer_size=0x7f070002;
         public static final int data_bits=0x7f070003;
-        public static final int flow_control=0x7f070004;
-        public static final int max_transfer_size=0x7f070005;
-        public static final int parity=0x7f070006;
-        public static final int port_list_1=0x7f070007;
-        public static final int port_list_2=0x7f070008;
-        public static final int port_list_4=0x7f070009;
-        public static final int stop_bits=0x7f07000a;
+        public static final int dl_descriptors=0x7f070004;
+        public static final int flow_control=0x7f070005;
+        public static final int max_transfer_size=0x7f070006;
+        public static final int parity=0x7f070007;
+        public static final int port_list_1=0x7f070008;
+        public static final int port_list_2=0x7f070009;
+        public static final int port_list_4=0x7f07000a;
+        public static final int stop_bits=0x7f07000b;
     }
     public static final class attr {
     }
