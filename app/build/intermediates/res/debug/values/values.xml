@@ -2,7 +2,7 @@
 <resources>
     <!-- From: file:/C:/android/AndroidStudioProjects/block_read/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string-array name="baud_rate">        
+    <string-array name="baud_rate">
 		<item>300</item>        
 		<item>600</item>        
 		<item>1200</item>        
@@ -53,6 +53,16 @@
 		<item>7</item>        
 		<item>8</item>        
 	</string-array>
+    <string-array name="dl_descriptors">
+		<item>nFR RS232 CLASSIC (OEM)</item>
+		<item>nFR RS232 CLASSIC</item>
+		<item>nFR USB CLASSIC</item>
+		<item>uFR ADVANCE</item>
+		<item>uFR CLASSIC</item>
+		<item>uFR PRO</item>
+		<item>uFR XR CLASSICu</item>
+		<item>uFR XRC  CLASSIC</item>
+	</string-array>
     <string-array name="flow_control">        
 		<item>none</item>        
 		<item>CTS/RTS</item>
@@ -101,7 +111,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/C:/android/AndroidStudioProjects/block_read/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="app_name">FTDID2xxDemo</string>
+    <string name="app_name">DLogic uFR block read demo</string>
     <string name="button_bitmode">BitMode</string>
     <string name="button_bitmode_service">BitMode Service</string>
     <string name="button_configure">Device Configure</string>
@@ -116,7 +126,7 @@
     <string name="title_activity_device_loopback">Device Loopback</string>
     <string name="title_activity_ftdi_mode_control">Ftdi Mode Control</string>
     <string name="title_activity_ftdi_mode_fragment">Ftdi Mode Info</string>
-    <string name="title_activity_main">FTDI D2xx Demo</string>
+    <string name="title_activity_main">DLogic uFR block read demo</string>
     <!-- From: file:/C:/android/AndroidStudioProjects/block_read/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
