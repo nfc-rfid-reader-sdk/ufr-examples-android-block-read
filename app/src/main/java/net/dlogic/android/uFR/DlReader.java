@@ -78,9 +78,6 @@ public class DlReader {
                             if (!ft_device.setBaudRate(ComParams.BAUD_RATE)) {
                                 throw new LocalException();
                             }
-                            if (!ft_device.set(ComParams.BAUD_RATE)) {
-                                throw new LocalException();
-                            }
                             if (!ft_device.setDataCharacteristics(ComParams.DATA_BITS, ComParams.STOP_BITS, ComParams.PARITY)) {
                                 throw new LocalException();
                             }
@@ -105,8 +102,29 @@ public class DlReader {
         throw new DlReader.DlReaderException("There is no D-Logic devices attached.");
     }
 
-    public synchronized int GetReaderType() throws DlReaderException {
+    public synchronized void readerReset() throws DlReaderException, InterruptedException {
 
+        try {
+            if (!ft_device.setRts()) {
+                throw new LocalException();
+            }
+            Thread.sleep(100);
+            if (!ft_device.clrRts()) {
+                throw new LocalException();
+            }
+        } catch(LocalException ex){
+            ft_device.close();
+            throw new DlReaderException("Can't reset device.");
+        }
+
+        Thread.sleep(1100); // ReaderReset with bootloader
+        // TODO: wait for BOOTLOADER character !
+        // or 1100 ms
+    }
+
+    public synchronized int getReaderType() throws DlReaderException {
+
+        return 0;
     }
 
     public synchronized void getCardId() throws DlReaderException {
@@ -126,14 +144,13 @@ public class DlReader {
     }
 
     private static class ComProtocol {
-        //-Internal functions:----------------------------------------------------------
-        void ErasePort(UFR_HANDLE hndUFR)
-        {
-            FT_Purge(hndUFR->ftHandle, FT_PURGE_RX | FT_PURGE_TX);
-        }
-//------------------------------------------------------------------------------
 
-        UFR_STATUS PortWrite(UFR_HANDLE hndUFR, void *buffer, uint32_t buffer_size)
+        public void ErasePort() {
+
+            ft_device.purge((byte)(D2xxManager.FT_PURGE_RX | D2xxManager.FT_PURGE_TX));
+        }
+
+        public void portWrite(void *buffer, uint32_t buffer_size)
         {
             uint32_t bytes_written;
             FT_STATUS ft_status;
@@ -149,17 +166,15 @@ public class DlReader {
                 return UFR_COMMUNICATION_BREAK;
             return UFR_OK;
         }
-//------------------------------------------------------------------------------
 
-        UFR_STATUS PortWriteResultBytesRet(UFR_HANDLE hndUFR, void *buffer,
-                                           uint32_t buffer_size, uint32_t *bytes_written)
+        public void portWriteResultBytesRet(void *buffer, uint32_t buffer_size, uint32_t *bytes_written)
         {
             FT_STATUS ft_status;
 
             if (NULL == hndUFR)
                 return UFR_DEVICE_WRONG_HANDLE;
 
-            ft_status = FT_Write(hndUFR->ftHandle, buffer, buffer_size,
+            ft_status = FT_Write(buffer, buffer_size,
                     (LPDWORD) bytes_written);
             if (ft_status != FT_OK)
                 return FT_STATUS_PREFIX | ft_status;
@@ -167,37 +182,19 @@ public class DlReader {
             return UFR_COMMUNICATION_BREAK;
             return UFR_OK;
         }
-//------------------------------------------------------------------------------
 
-        UFR_STATUS PortRead(UFR_HANDLE hndUFR, void *buffer, uint32_t buffer_size)
+        public void portRead(void *buffer, uint32_t buffer_size)
         {
             uint32_t bytes_returned;
             FT_STATUS ft_status;
-            #if DEBUG_STD
-            uint32_t i;
-            uint8_t *p = (uint8_t *) buffer;
-            #endif
 
             if (NULL == hndUFR)
                 return UFR_DEVICE_WRONG_HANDLE;
 
             memset(buffer, 0, buffer_size);
 
-            ft_status = FT_Read(hndUFR->ftHandle, buffer, buffer_size,
+            ft_status = FT_Read(buffer, buffer_size,
                     (LPDWORD) &bytes_returned);
-
-            #if DEBUG_STD
-
-            fprintf(stdout, "2) FT_Read(%p)=%i |  %u -> %u :: ", hndUFR->ftHandle,
-                    (int) ft_status, buffer_size, bytes_returned);
-
-            for (i = 0; i < bytes_returned; ++i)
-            {
-                fprintf(stdout, "%02X:", p[i]);
-            }
-            fprintf(stdout, "\n");
-
-            #endif
 
             if (ft_status != FT_OK)
                 return FT_STATUS_PREFIX | ft_status;
@@ -205,9 +202,8 @@ public class DlReader {
                 return UFR_COMMUNICATION_BREAK;
             return UFR_OK;
         }
-//------------------------------------------------------------------------------
 
-        UFR_STATUS PortReadResultBytesRet(UFR_HANDLE hndUFR, void *buffer,
+        public void portReadResultBytesRet(void *buffer,
                                           uint32_t buffer_size, uint32_t *bytes_returned)
         {
             FT_STATUS ft_status;
@@ -215,7 +211,7 @@ public class DlReader {
             if (NULL == hndUFR)
                 return UFR_DEVICE_WRONG_HANDLE;
 
-            ft_status = FT_Read(hndUFR->ftHandle, buffer, buffer_size,
+            ft_status = FT_Read(buffer, buffer_size,
                     (LPDWORD) bytes_returned);
             if (ft_status != FT_OK)
                 return FT_STATUS_PREFIX | ft_status;
@@ -223,8 +219,8 @@ public class DlReader {
             return UFR_COMMUNICATION_BREAK;
             return UFR_OK;
         }
-        //------------------------------------------------------------------------------
-        uint8_t GetChecksum_local(uint8_t *buffer, uint8_t length)
+
+        public byte getChecksum_local(uint8_t *buffer, uint8_t length)
         { // Ukoliko se ne bude koristila, spojiti sa CalcChecksum()
             uint16_t i;
             uint8_t sum = buffer[0];
@@ -236,8 +232,8 @@ public class DlReader {
             return sum + CHECKSUM_CONST;
         }
 
-        //------------------------------------------------------------------------------
-        uint8_t GetChecksumFragment(uint8_t previous_checksum, uint8_t *buffer,
+
+        public byte getChecksumFragment(uint8_t previous_checksum, uint8_t *buffer,
                                     uint8_t length)
         { // !without +7 at the end
             uint16_t i;
@@ -249,15 +245,13 @@ public class DlReader {
             return previous_checksum;
         }
 
-        //------------------------------------------------------------------------------
-        void CalcChecksum(uint8_t *buffer, uint8_t length)
+        public void calcChecksum(uint8_t *buffer, uint8_t length)
         {
 
             buffer[length - 1] = GetChecksum_local(buffer, length);
         }
 
-        //------------------------------------------------------------------------------
-        BOOL TestChecksum(uint8_t *buffer, uint8_t length)
+        public boolean testChecksum(uint8_t *buffer, uint8_t length)
         {
             uint16_t i;
             uint8_t sum = buffer[0];
@@ -269,18 +263,16 @@ public class DlReader {
             sum += CHECKSUM_CONST;
             return sum == buffer[length - 1];
         }
-//------------------------------------------------------------------------------
 
-        BOOL TestAuthMode(uint8_t auth_mode)
+        public boolean testAuthMode(uint8_t auth_mode)
         {
 
             if ((auth_mode != MIFARE_AUTHENT1A) && (auth_mode != MIFARE_AUTHENT1B))
                 return FALSE;
             return TRUE;
         }
-//------------------------------------------------------------------------------
 
-        UFR_STATUS InitialHandshaking(UFR_HANDLE hndUFR, uint8_t *data,
+        public void initialHandshaking(uint8_t *data,
                                       uint8_t *bytes_to_read)
         {
             // length = INTRO_SIZE, data[INTRO_SIZE] = checksum
@@ -310,10 +302,8 @@ public class DlReader {
             *bytes_to_read = data[3];
             return UFR_OK;
         }
-//------------------------------------------------------------------------------
 
-        UFR_STATUS GetAndTestResponse(UFR_HANDLE hndUFR, uint8_t *cmd_intro,
-                                      uint8_t command)
+        public void getAndTestResponse(uint8_t *cmd_intro, uint8_t command)
         {
             UFR_STATUS status;
 
