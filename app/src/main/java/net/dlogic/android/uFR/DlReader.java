@@ -57,6 +57,12 @@ public class DlReader {
         public static final int PARAM1_INDEX = 5;
         public static final int VAL0_INDEX = 4;
         public static final int VAL1_INDEX = 5;
+        public static final int INTRO_CMD_INDEX = 1;
+        public static final int CMD_EXT_LENGTH_INDEX = 3;
+        public static final int CMD_PARAM0_INDEX = 4;
+        public static final int CMD_EXT_PROVIDED_KEY_INDEX = 4;
+        public static final int RESPONSE_EXT_LENGTH_INDEX = 3;
+        public static final int RESPONSE_VAL0_INDEX = 4;
 
         // Protocol consts:
         public static final byte CMD_HEADER = 0x55;
@@ -183,14 +189,14 @@ public class DlReader {
         }
 
         bytes_to_read = ComProtocol.initialHandshaking(buffer);
-        ComProtocol.portRead(buffer, bytes_to_read);
+        buffer = ComProtocol.portRead(bytes_to_read);
         if (!ComProtocol.testChecksum(buffer, bytes_to_read))
             throw new DlReaderException("UFR_COMMUNICATION_ERROR");
 
         return buffer[0] << 24 | (buffer[1] & 0xFF) << 16 | (buffer[2] & 0xFF) << 8 | (buffer[3] & 0xFF);
     }
 
-    public synchronized void getReaderHardwareVersion(Byte version_major, Byte version_minor) throws InterruptedException, DlReaderException
+    public synchronized void getReaderHardwareVersion(byte version_major, byte version_minor) throws InterruptedException, DlReaderException
     {
         byte buffer[] = new byte[] { Consts.CMD_HEADER, Consts.GET_HARDWARE_VERSION, Consts.CMD_TRAILER };
 
@@ -204,29 +210,71 @@ public class DlReader {
         version_minor = buffer[5];
     }
 
-    public synchronized void getCardId() throws DlReaderException {
+    public synchronized int getCardId(byte sak) throws InterruptedException, DlReaderException {
+        byte[] buffer = new byte[] { Consts.CMD_HEADER, Consts.GET_CARD_ID, Consts.CMD_TRAILER, 0, (byte)0xAA, (byte)0xCC, 0 };
+        byte bytes_to_read, temp_card_type;
 
         if (open_index < 0) {
             throw new DlReaderException("Device not opened.");
         }
+
+        bytes_to_read = ComProtocol.initialHandshaking(buffer);
+        sak = buffer[Consts.VAL0_INDEX];
+
+        buffer = ComProtocol.portRead(bytes_to_read);
+        if (!ComProtocol.testChecksum(buffer, bytes_to_read))
+            throw new DlReaderException("UFR_COMMUNICATION_ERROR");
+
+        return buffer[0] << 24 | (buffer[1] & 0xFF) << 16 | (buffer[2] & 0xFF) << 8 | (buffer[3] & 0xFF);
     }
 
-    public synchronized void getCardIdEx() throws DlReaderException {
+    public synchronized byte[] getCardIdEx(byte sak, byte uid_size) throws InterruptedException, DlReaderException {
+        byte[] buffer = new byte[] {Consts.CMD_HEADER, Consts.GET_CARD_ID_EX, Consts.CMD_TRAILER, 0, (byte)0xAA, (byte)0xCC, 0 };
+        byte[] tmp_buff;
+        byte[] result;
+        byte bytes_to_read;
 
         if (open_index < 0) {
             throw new DlReaderException("Device not opened.");
         }
+
+        bytes_to_read = ComProtocol.initialHandshaking(buffer);
+        sak = buffer[Consts.VAL0_INDEX];
+        uid_size = buffer[Consts.VAL1_INDEX];
+
+        tmp_buff = ComProtocol.portRead(bytes_to_read);
+
+        if (!ComProtocol.testChecksum(tmp_buff, bytes_to_read))
+            throw new DlReaderException("UFR_COMMUNICATION_ERROR");
+        if (uid_size > 10)
+            throw new DlReaderException("UFR_BUFFER_OVERFLOW");
+
+        result = java.util.Arrays.copyOf(tmp_buff, uid_size);
+        return result;
     }
 
-    public synchronized void blockRead() throws DlReaderException {
+    public synchronized byte[] blockRead(byte block_address, byte auth_mode, byte[] key) throws InterruptedException, DlReaderException {
+        byte[] cmd_intro = new byte[] { Consts.CMD_HEADER, Consts.BLOCK_READ, Consts.CMD_TRAILER, 11, (byte)0xAA, (byte)0xCC, 0 };
+        byte[] cmd_ext = new byte[11];
 
         if (open_index < 0) {
             throw new DlReaderException("Device not opened.");
         }
+
+        cmd_intro[4] = auth_mode;
+        cmd_ext[0] = block_address;
+
+        if (!ComProtocol.testAuthMode(auth_mode))
+            throw new DlReaderException("UFR_PARAMETERS_ERROR");
+
+        java.lang.System.arraycopy(key, 0, cmd_ext, Consts.CMD_EXT_PROVIDED_KEY_INDEX, 6);
+        return ComProtocol.commonBlockRead(cmd_intro, cmd_ext, (byte)17);
     }
 
     public synchronized void close() throws DlReaderException {
 
+        open_index = -1;
+        ft_device.close();
     }
 
     private static class ComProtocol {
@@ -243,13 +291,16 @@ public class DlReader {
             }
         }
 
-        public static void portRead(byte[] buffer, int buffer_size) throws DlReaderException
+        public static byte[] portRead(int buffer_size) throws DlReaderException
         {
+            byte[] buffer = new byte[buffer_size];
             java.util.Arrays.fill(buffer, (byte) 0);
 
             if (ft_device.read(buffer, buffer_size, ComParams.READ_TIMEOUT) != buffer_size) {
                 throw new DlReaderException("UFR_COMMUNICATION_BREAK");
             }
+
+            return buffer;
         }
 
         public static byte getChecksum_local(byte[] buffer, byte length)
@@ -312,7 +363,7 @@ public class DlReader {
             Thread.sleep(10);
             calcChecksum(data, Consts.INTRO_SIZE);
             portWrite(data, Consts.INTRO_SIZE);
-            portRead(data, Consts.INTRO_SIZE);
+            data = portRead(Consts.INTRO_SIZE);
             if (!testChecksum(data, Consts.INTRO_SIZE))
                 throw new DlReaderException("UFR_COMMUNICATION_ERROR");
             if ((data[0] == Consts.ERR_HEADER) && (data[2] == Consts.ERR_TRAILER))
@@ -328,7 +379,8 @@ public class DlReader {
 
         public static void getAndTestResponse(byte[] cmd_intro, byte command) throws DlReaderException
         {
-            portRead(cmd_intro, Consts.INTRO_SIZE);
+            java.lang.System.arraycopy(portRead(Consts.INTRO_SIZE), 0, cmd_intro, 0, Consts.INTRO_SIZE);
+
             if (!testChecksum(cmd_intro, Consts.INTRO_SIZE))
                 throw new DlReaderException("UFR_COMMUNICATION_ERROR");
             if ((cmd_intro[0] == Consts.ERR_HEADER) || (cmd_intro[2] == Consts.ERR_TRAILER))
@@ -336,6 +388,32 @@ public class DlReader {
             if ((cmd_intro[0] != Consts.RESPONSE_HEADER) || (cmd_intro[2] != Consts.RESPONSE_TRAILER)
                     || (cmd_intro[1] != command))
                 throw new DlReaderException("UFR_COMMUNICATION_ERROR");
+        }
+
+        public static byte[] commonBlockRead(byte[] cmd_intro, byte[] cmd_ext, byte response_ext_length) throws InterruptedException, DlReaderException
+        {
+            byte command = cmd_intro[Consts.INTRO_CMD_INDEX];
+            byte cmd_ext_length = cmd_intro[Consts.CMD_EXT_LENGTH_INDEX];
+            byte bytes_to_read;
+            byte[] checksum;
+            byte[] data;
+
+            bytes_to_read = initialHandshaking(cmd_intro);
+
+            calcChecksum(cmd_ext, cmd_ext_length);
+            portWrite(cmd_ext, cmd_ext_length);
+
+            getAndTestResponse(cmd_intro, command);
+
+            if (cmd_intro[Consts.RESPONSE_EXT_LENGTH_INDEX] != response_ext_length)
+                throw new DlReaderException("UFR_COMMUNICATION_ERROR");
+
+            data = portRead(response_ext_length - 1);
+            checksum = portRead(1);
+            if (checksum[0] != (getChecksumFragment((byte)0, data, (byte)(response_ext_length - 1)) + Consts.CHECKSUM_CONST))
+                throw new DlReaderException("UFR_COMMUNICATION_ERROR");
+
+            return data;
         }
     }
 
