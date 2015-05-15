@@ -27,8 +27,6 @@ import android.widget.TextView;
 
 import com.ftdi.j2xx.D2xxManager;
 
-
-
 public class FragmentLayout extends Activity {
 	public static D2xxManager ftD2xx = null;
 	public static int currect_index = 0;
