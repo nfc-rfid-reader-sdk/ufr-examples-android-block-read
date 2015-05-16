@@ -20,23 +20,6 @@
     <option name="id" value="Android" />
   </component>
   <component name="SvnBranchConfigurationManager">
-    <option name="myConfigurationMap">
-      <map>
-        <entry key="$PROJECT_DIR$">
-          <value>
-            <SvnBranchConfiguration>
-              <option name="branchUrls">
-                <list>
-                  <option value="svn://192.168.1.162/sw_open/ufr/android/examples/branches" />
-                  <option value="svn://192.168.1.162/sw_open/ufr/android/examples/tags" />
-                </list>
-              </option>
-              <option name="trunkUrl" value="svn://192.168.1.162/sw_open/ufr/android/examples/trunk" />
-            </SvnBranchConfiguration>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
 </project>
