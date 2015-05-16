@@ -24,8 +24,6 @@
     <list default="true" readonly="true" id="6876dd68-782c-499f-928f-eb118aa6be07" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/net/dlogic/android/ufr/block_read_example" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/net/dlogic/android/ufr/block_read_example" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/net/dlogic/android/ufr" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/net/dlogic/android/ufr" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/net/dlogic/android/ufr/block_read_example/BuildConfig.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/net/dlogic/android/ufr/block_read_example/R.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/d2xx.xml" afterPath="" />
@@ -33,257 +31,10 @@
       <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\.idea\libraries\support_v4_22_1_1.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\generated\source\buildConfig\debug\net\dlogic\android\ufr\BuildConfig.java" afterPath="" />
       <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\generated\source\r\debug\net\dlogic\android\ufr\R.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aapt\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android\support\v4\media\MediaMetadataCompat.aidl" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android\support\v4\media\RatingCompat.aidl" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android\support\v4\media\session\MediaSessionCompat.aidl" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android\support\v4\media\session\ParcelableVolumeInfo.aidl" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android\support\v4\media\session\PlaybackStateCompat.aidl" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout-large\fragment_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\activity_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_bit_mode_service.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_bitmode.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_eeprom.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_eeprom_userarea.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_event.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_filetransfer.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_ft2232htest.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_ft4232htest.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_information.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_mpse.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_opendevice.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_pidvid.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_rs232pinconfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_status.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\device_uart.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\fragment_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout\my_spinner_textview.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\symbols\debug\R.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\BitBangModeIntentService.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\services\BitBangModeIntentService.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\BitBangModeService$ServiceHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\services\BitBangModeService$ServiceHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\BitBangModeService.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\services\BitBangModeService.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\androidTest\debug\net\dlogic\my\myapplication\test\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$MyOnBaudSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$MyOnDataSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$MyOnFlowSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$MyOnParitySelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$MyOnStopSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$save_file_thread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment$send_file_thread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceFileTransferFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceInformationFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceInformationFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceInformationFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DevicePIDVIDFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DevicePIDVIDFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DevicePIDVIDFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceStatusFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceStatusFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceStatusFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceStatusFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$MyOnBaudSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$MyOnDataSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$MyOnFlowSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$MyOnParitySelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$MyOnPortSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$MyOnStopSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment$readThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\DeviceUARTFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/DlReader$ComParams.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/DlReader$ComProtocol.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/DlReader$Consts.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/DlReader$DlReaderException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/DlReader$LocalException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/DlReader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\EEPROMFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\EEPROMFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\EEPROMFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\EEPROMFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\EEPROMUserAreaFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\EEPROMUserAreaFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\EEPROMUserAreaFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\EEPROMUserAreaFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$MyOnBaudSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$MyOnDataSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$MyOnFlowSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$MyOnParitySelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$MyOnStopSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$readThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment$readThread_1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT2232HTestFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$6.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$7.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$8.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$9.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$MyOnBaudSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$MyOnDataSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$MyOnFlowSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$MyOnParitySelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$MyOnStopSelectedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$readThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$readThread_1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$readThread_2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment$readThread_3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FT4232HTestFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FragmentLayout$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FragmentLayout$DetailsActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FragmentLayout$DetailsFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FragmentLayout$TitlesFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FragmentLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FtdiEventFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FtdiEventFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FtdiEventFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FtdiEventFragment$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FtdiEventFragment$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FtdiEventFragment$EventThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FtdiEventFragment$timerTask.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FtdiEventFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\FtdiModeListInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MPSEFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MPSEFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MPSEFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MPSEFragment$BitModeAsyncTask.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MPSEFragment$mpseThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MPSEFragment$timerTask.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MPSEFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/Main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/Main$Consts.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/Main$DeviceConnectionSynchronizer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/Main$ReaderThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/Main$Tools.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$6.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$7.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$8.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$9.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$BitModeAsyncTask.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$EventThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$LoopbackReadThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$mpseThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment$timerTask.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\MiscFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\OpenDeviceFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\OpenDeviceFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\OpenDeviceFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\OpenDeviceFragment$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\OpenDeviceFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$mipmap.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$mipmap.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R$xml.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R$xml.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example/R.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\RS232PinConfigFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\RS232PinConfigFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\RS232PinConfigFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aapt" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\androidTest" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\dependency-cache\androidTest" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/outputs/apk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\assets" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr/block_read_example" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\pre-dexed\debug\classes-49588dde6ad15e13255b260150d601ca8d8699aa.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\tmp\compileDebugAndroidTestJava" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJava" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\pre-dexed\debug\d2xx-1d63c8ae29af6eac09242667e5c16b60117f2fa8.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/d2xx-6006a0857282ae0bd392271ff49fa77572880987.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\androidTest\debug" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/dependency-cache/debug" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\dependency-cache\androidTest\debug" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/dependency-cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/dex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\androidTest\debug\net\dlogic" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-324272d64a7de176218eef1ad8d0b008cd1a6ac0.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\res\debug\layout-large" afterPath="" />
+      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\outputs\apk" afterPath="" />
+      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\outputs\apk\app-debug-unaligned.apk" afterPath="" />
+      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\outputs\apk\app-debug.apk" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\libs" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android\support\v4\media" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\androidTest\debug\net\dlogic\my" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\androidTest\debug\net\dlogic\my\myapplication" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\androidTest\debug\net" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\res" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\debug\com\ftdi\java_d2xx_demo\services" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android\support\v4\media\session" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-619ea16037e9784b0cf6336d66a93e738793be81.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android\support" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\classes\androidTest\debug\net\dlogic\my\myapplication\test" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/tmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/net/dlogic/android/ufr" afterPath="" />
-      <change type="DELETED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\aidl\android\support\v4" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
@@ -291,9 +42,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\generated\source\buildConfig\debug\net\dlogic\android\uFR" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/net/dlogic/android/ufr" />
+      <change type="MOVED" beforePath="C:\android\AndroidStudioProjects\block_read\app\build\generated\source\r\debug\net\dlogic\android\uFR" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/net/dlogic/android/ufr" />
     </list>
     <ignored path="block_read.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -324,8 +75,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69466513">
-              <caret line="68" column="97" selection-start-line="68" selection-start-column="97" selection-end-line="68" selection-end-column="97" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -333,14 +84,14 @@
       </file>
       <file leaf-file-name="main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
               <folding />
             </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -1713,9 +1464,10 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1766,13 +1518,34 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ufr" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block_read_example" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block_read" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="manifests" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2081,20 +1854,39 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="68" column="97" selection-start-line="68" selection-start-column="97" selection-end-line="68" selection-end-column="97" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java">
@@ -2106,14 +1898,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java">
@@ -2133,14 +1925,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/DlReader.java">
@@ -2267,13 +2059,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../sdk/platforms/android-22/data/res/layout/activity_list_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.76853526">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
@@ -2322,20 +2114,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69466513">
-          <caret line="68" column="97" selection-start-line="68" selection-start-column="97" selection-end-line="68" selection-end-column="97" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
