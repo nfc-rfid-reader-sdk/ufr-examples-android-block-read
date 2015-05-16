@@ -83,18 +83,22 @@ public class Main extends Activity {
         private boolean is_connected;
 
         void DeviceConnectionSynchronizer() {
+
             is_connected = false;
         }
 
         synchronized void connected() {
+
             is_connected = true;
         }
 
         synchronized void disconnected() {
+
             is_connected = false;
         }
 
         synchronized boolean isConnected () {
+
             return is_connected;
         }
     }
