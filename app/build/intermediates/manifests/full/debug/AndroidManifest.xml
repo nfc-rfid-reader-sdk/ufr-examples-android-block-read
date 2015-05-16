@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="15"
-        android:targetSdkVersion="15" />
+        android:targetSdkVersion="22" />
 
     <uses-feature android:name="android.hardware.usb.host" />
 
@@ -14,7 +14,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name="net.dlogic.android.uFR.FragmentLayout"
+            android:name="net.dlogic.android.ufr.block_read_example.Main"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_main"
             android:launchMode="singleTask" >
@@ -31,7 +31,6 @@
                 android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
                 android:resource="@xml/device_filter" />
         </activity>
-        <activity android:name="net.dlogic.android.uFR.FragmentLayout$DetailsActivity" />
     </application>
 
 </manifest>

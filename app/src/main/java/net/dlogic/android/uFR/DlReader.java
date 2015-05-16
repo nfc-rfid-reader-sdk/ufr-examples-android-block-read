@@ -1,4 +1,4 @@
-package net.dlogic.android.uFR;
+package net.dlogic.android.ufr;
 
 /**
  * Created by zborac on 12.5.2015..
@@ -103,7 +103,15 @@ public class DlReader {
     public synchronized void open() throws DlReaderException {
         int dev_cnt;
         D2xxManager.FtDeviceInfoListNode dev_infolist;
-        String[] dl_descriptors = parentContext.getResources().getStringArray(R.array.dl_descriptors);
+        String[] dl_descriptors = new String[] {"nFR RS232 CLASSIC (OEM)",
+                                                "nFR RS232 CLASSIC",
+                                                "nFR USB CLASSIC",
+                                                "uFR ADVANCE",
+                                                "uFR CLASSIC",
+                                                "uFR PRO",
+                                                "uFR XR CLASSICu",
+                                                "uFR XRC  CLASSIC"
+                                                };
 
         // try to close first
         close();

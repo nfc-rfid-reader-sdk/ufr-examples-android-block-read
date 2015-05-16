@@ -21,7 +21,6 @@ ADDED from AndroidManifest.xml:6:2
 		ADDED from AndroidManifest.xml:6:16
 uses-sdk
 ADDED from AndroidManifest.xml:7:5
-MERGED from com.android.support:support-v4:22.1.1:20:5
 	android:targetSdkVersion
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
@@ -31,12 +30,11 @@ MERGED from com.android.support:support-v4:22.1.1:20:5
 		INJECTED from AndroidManifest.xml:0:0
 application
 ADDED from AndroidManifest.xml:10:5
-MERGED from com.android.support:support-v4:22.1.1:22:5
 	android:label
 		ADDED from AndroidManifest.xml:12:9
 	android:icon
 		ADDED from AndroidManifest.xml:11:9
-activity#net.dlogic.android.uFR.FragmentLayout
+activity#net.dlogic.android.ufr.block_read_example.Main
 ADDED from AndroidManifest.xml:13:9
 	android:label
 		ADDED from AndroidManifest.xml:15:13
@@ -68,7 +66,3 @@ ADDED from AndroidManifest.xml:30:13
 		ADDED from AndroidManifest.xml:31:17
 	android:name
 		ADDED from AndroidManifest.xml:30:24
-activity#net.dlogic.android.uFR.FragmentLayout$DetailsActivity
-ADDED from AndroidManifest.xml:34:9
-	android:name
-		ADDED from AndroidManifest.xml:34:19
