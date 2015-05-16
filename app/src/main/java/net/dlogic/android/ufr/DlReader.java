@@ -6,6 +6,8 @@ package net.dlogic.android.ufr;
 
 import java.io.IOException;
 import android.content.Context;
+import android.util.Log;
+
 import com.ftdi.j2xx.D2xxManager;
 import com.ftdi.j2xx.FT_Device;
 
@@ -30,6 +32,7 @@ public class DlReader {
             throw new DlReaderException("Can't open driver manager.");
         }
 
+        Log.i("zborac:", "Sve uredu u DlReader::getInstance()");
         parentContext = context;
         return reader;
     }
@@ -114,7 +117,7 @@ public class DlReader {
                                                 };
 
         // try to close first
-        close();
+        // close();
 
         dev_cnt = ftD2xx.createDeviceInfoList(parentContext);
 
@@ -124,8 +127,8 @@ public class DlReader {
             for (int inner_cnt = 0; inner_cnt < dl_descriptors.length; inner_cnt++) {
 
                 if (dev_infolist.description.equals(dl_descriptors[inner_cnt])) {
+                    ft_device = ftD2xx.openByIndex(parentContext, outer_cnt);
 
-                    ft_device = ftD2xx.openByIndex(parentContext, inner_cnt);
                     if ((ft_device != null) && ft_device.isOpen()) {
 
                         try {

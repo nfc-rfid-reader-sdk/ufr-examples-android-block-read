@@ -3,12 +3,13 @@ package net.dlogic.android.ufr.block_read_example;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import net.dlogic.android.ufr.DlReader;
 
 /**
  * Created by zborac on 15.5.2015..
@@ -16,6 +17,8 @@ import android.widget.Toast;
 
 public class Main extends Activity {
     static Context context;
+    DeviceConnectionSynchronizer dev_con;
+    DlReader device;
     Button btnOpen;
     Button btnReaderType;
     Button btnTagId;
@@ -27,11 +30,6 @@ public class Main extends Activity {
     EditText ebTagUid;
     EditText ebBlockData;
 
-    public Main() {
-
-        context = this;
-    }
-
     void connect() {
         new Thread(new ReaderThread()).start();
     }
@@ -41,46 +39,102 @@ public class Main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-    }
+        context = this;
+        try {
+            device = DlReader.getInstance(context);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        dev_con = DeviceConnectionSynchronizer.getInstance();
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        setContentView(R.layout.main);
-        View view = inflater.inflate(R.layout.main, container, false);
-
-        ebBlockAddr = (EditText) view.findViewById(R.id.ebBlockAddr);
-        ebDeviceType = (EditText) view.findViewById(R.id.ebDeviceType);
+        // Get references to UI widgets:
+        ebBlockAddr = (EditText) findViewById(R.id.ebBlockAddr);
+        ebDeviceType = (EditText) findViewById(R.id.ebDeviceType);
         ebDeviceType.setInputType(0);
-        ebTagId = (EditText) view.findViewById(R.id.ebTagId);
+        ebTagId = (EditText) findViewById(R.id.ebTagId);
         ebTagId.setInputType(0);
-        ebTagUid = (EditText) view.findViewById(R.id.ebTagUid);
+        ebTagUid = (EditText) findViewById(R.id.ebTagUid);
         ebTagUid.setInputType(0);
-        ebBlockData = (EditText) view.findViewById(R.id.ebBlockData);
+        ebBlockData = (EditText) findViewById(R.id.ebBlockData);
         ebBlockData.setInputType(0);
 
-        btnOpen = (Button) view.findViewById(R.id.btnOpen);
-        btnReaderType = (Button) view.findViewById(R.id.btnDeviceType);
-        btnTagId = (Button) view.findViewById(R.id.btnTagId);
-        btnBlockRead = (Button) view.findViewById(R.id.btnBlockRead);
-        btnClose = (Button) view.findViewById(R.id.btnClose);
+        btnOpen = (Button) findViewById(R.id.btnOpen);
+        btnReaderType = (Button) findViewById(R.id.btnDeviceType);
+        btnTagId = (Button) findViewById(R.id.btnTagId);
+        btnBlockRead = (Button) findViewById(R.id.btnBlockRead);
+        btnClose = (Button) findViewById(R.id.btnClose);
 
         btnOpen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                    Toast.makeText(context, "Device not open yet...", Toast.LENGTH_SHORT).show();
+                if (dev_con.isConnected()) {
+                    Toast.makeText(context, "Device already connected...", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
+                }
             }
         });
-        return view;
+        btnReaderType.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (dev_con.isConnected()) {
+                    try {
+                        ebDeviceType.setText(Integer.toHexString(device.getReaderType()));
+                    } catch (Exception e) {
+                        Log.i("zborac:", e.toString());
+                    }
+                }
+                else {
+                    Toast.makeText(context, "Device not connected...", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        btnTagId.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (dev_con.isConnected()) {
+
+                }
+                else {
+                    Toast.makeText(context, "Device not connected...", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        btnBlockRead.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (dev_con.isConnected()) {
+
+                }
+                else {
+                    Toast.makeText(context, "Device not connected...", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (dev_con.isConnected()) {
+                    new Thread(new ReaderThread(Consts.TASK_DISCONNECT)).start();
+                } else {
+                    Toast.makeText(context, "Device not connected...", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     private class Consts {
         public static final int TASK_NONE = 0;
         public static final int TASK_CONNECT = 1;
         public static final int TASK_DISCONNECT = 2;
-        public static final int TASK_READ_BLOCK = 3;
     }
 
-    class DeviceConnectionSynchronizer {
+    static class DeviceConnectionSynchronizer {
+        private static DeviceConnectionSynchronizer dcs = null;
         private boolean is_connected;
+
+        static synchronized DeviceConnectionSynchronizer getInstance() {
+            if (dcs == null) {
+                dcs = new DeviceConnectionSynchronizer();
+            }
+            return dcs;
+        }
 
         void DeviceConnectionSynchronizer() {
 
@@ -106,11 +160,10 @@ public class Main extends Activity {
     class ReaderThread implements Runnable {
         private int task;
 
-        void ReaderConnect() {
+        public ReaderThread() {
             task = Consts.TASK_NONE;
         }
-
-        void ReaderConnect(int ptask) {
+        public ReaderThread(int ptask)  {
             task = ptask;
         }
 
@@ -119,11 +172,23 @@ public class Main extends Activity {
 
             switch (task) {
                 case Consts.TASK_CONNECT:
+                    try {
+                        device.open();
+                        dev_con.connected();
+                    } catch (Exception e) {
+                        Log.i("zborac:", e.toString());
+                    }
                     break;
+
                 case Consts.TASK_DISCONNECT:
+                    try {
+                        device.close();
+                        dev_con.disconnected();
+                    } catch (Exception e) {
+                        Log.i("zborac:", e.toString());
+                    }
                     break;
-                case Consts.TASK_READ_BLOCK:
-                    break;
+
                 default:
                     break;
             }
