@@ -99,6 +99,8 @@ public class DlReader {
         public static final byte BLOCK_READ = 0x16;
         public static final byte SOFT_RESTART = 0x30;
         public static final byte USER_INTERFACE_SIGNAL = 0x26;
+
+        public static final int DL_READER_GENERAL_EXCEPTION = 1000;
     }
 
     public synchronized void open() throws DlReaderException {
@@ -405,11 +407,16 @@ public class DlReader {
 
         public DlReaderException(String ftStatusMsg) {
             super(ftStatusMsg);
+            err_code = Consts.DL_READER_GENERAL_EXCEPTION;
         }
 
         public DlReaderException(String ftStatusMsg, int p_err_code) {
             super(ftStatusMsg);
             err_code = p_err_code;
+        }
+
+        public int getErrCode() {
+            return err_code;
         }
     }
 
@@ -437,7 +444,7 @@ public class DlReader {
             sak = p_sak;
         }
 
-        public byte getSak() {
+        public byte getSak() {;
             return sak;
         }
 
