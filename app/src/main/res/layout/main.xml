@@ -11,14 +11,14 @@
         android:layout_margin="5dip"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:layout_weight="0.41"
+        android:layout_weight="0.28"
         android:background="#505050"
-        android:tag="configure block">
+        android:tag="configure block"
+        android:weightSum="1">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
             android:orientation="vertical"
             android:weightSum="1">
 
@@ -29,20 +29,27 @@
                 android:layout_gravity="center_horizontal"
                 android:inputType="none"
                 android:text="Block Addr:"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp" />
 
             <EditText
                 android:id="@+id/ebBlockAddr"
-                android:layout_width="match_parent"
+                android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="0.10"
                 android:autoText="true"
                 android:background="#708070"
                 android:editable="false"
                 android:ems="10"
                 android:inputType="number"
-                android:numeric="integer" />
+                android:numeric="integer"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="0"
+                android:layout_marginBottom="10dp" />
 
             <TextView
                 android:id="@+id/editText4"
@@ -50,18 +57,24 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 android:text="Device type:"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp" />
 
             <EditText
                 android:id="@+id/ebDeviceType"
-                android:layout_width="match_parent"
+                android:layout_width="88dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.10"
                 android:autoText="true"
                 android:background="#708070"
                 android:editable="false"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp" />
 
             <TextView
                 android:id="@+id/editText5"
@@ -69,21 +82,33 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 android:text="Card Id (SAK)"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp" />
 
             <EditText
                 android:id="@+id/ebTagId"
-                android:layout_width="match_parent"
+                android:layout_width="88dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.10"
                 android:autoText="true"
                 android:background="#708070"
                 android:editable="false"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp" />
 
         </LinearLayout>
 
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.73"></LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="184dp"
@@ -160,27 +185,35 @@
         android:layout_marginTop="5dp"
         android:layout_weight="0.06"
         android:background="#505050"
-        android:tag="Read block">
+        android:tag="Read block"
+        android:orientation="vertical"
+        android:weightSum="1">
 
 
         <TextView
             android:id="@+id/BlockRead"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Card uid:"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="left" />
 
         <EditText
             android:id="@+id/ebTagUid"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="#708070"
             android:focusableInTouchMode="false"
-            android:gravity="left|center_vertical" />
+            android:gravity="left|center_vertical"
+            android:enabled="false"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="0dp" />
 
     </LinearLayout>
 
@@ -191,28 +224,36 @@
         android:layout_margin="5dip"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:layout_weight="0.01"
+        android:layout_weight="0.06"
         android:background="#505050"
-        android:tag="Read block">
+        android:tag="Read block"
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Block:"
-            android:textStyle="bold" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Block data:"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp" />
 
         <EditText
             android:id="@+id/ebBlockData"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="#708070"
             android:focusableInTouchMode="false"
-            android:gravity="left|center_vertical" />
+            android:gravity="left|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp" />
+
     </LinearLayout>
 
     <!-- Write byte -->

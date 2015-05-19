@@ -6,7 +6,6 @@ package net.dlogic.android.ufr;
 
 import java.io.IOException;
 import android.content.Context;
-import android.util.Log;
 
 import com.ftdi.j2xx.D2xxManager;
 import com.ftdi.j2xx.FT_Device;
@@ -32,7 +31,6 @@ public class DlReader {
             throw new DlReaderException("Can't open driver manager.");
         }
 
-        Log.i("zborac:", "Sve uredu u DlReader::getInstance()");
         parentContext = context;
         return reader;
     }
@@ -49,7 +47,7 @@ public class DlReader {
         public static final byte STOP_BITS = D2xxManager.FT_STOP_BITS_1;
     }
 
-    private static class Consts {
+    public static class Consts {
 
         // Lengths and ranges:
         public static final int BUFFER_LOCAL_SIZE = 256;
@@ -115,9 +113,6 @@ public class DlReader {
                                                 "uFR XR CLASSICu",
                                                 "uFR XRC  CLASSIC"
                                                 };
-
-        // try to close first
-        // close();
 
         dev_cnt = ftD2xx.createDeviceInfoList(parentContext);
 
@@ -204,46 +199,15 @@ public class DlReader {
         if (!ComProtocol.testChecksum(buffer, bytes_to_read))
             throw new DlReaderException("UFR_COMMUNICATION_ERROR");
 
-        return buffer[0] << 24 | (buffer[1] & 0xFF) << 16 | (buffer[2] & 0xFF) << 8 | (buffer[3] & 0xFF);
+        return (buffer[0] & 0xFF) | (buffer[1] & 0xFF) << 8 | (buffer[2] & 0xFF) << 16 | (buffer[3] & 0xFF) << 24;
     }
 
-    public synchronized void getReaderHardwareVersion(byte version_major, byte version_minor) throws InterruptedException, DlReaderException
-    {
-        byte buffer[] = new byte[] { Consts.CMD_HEADER, Consts.GET_HARDWARE_VERSION, Consts.CMD_TRAILER };
-
-        if (open_index < 0) {
-            throw new DlReaderException("Device not opened.");
-        }
-
-        ComProtocol.initialHandshaking(buffer);
-
-        version_major = buffer[4];
-        version_minor = buffer[5];
-    }
-
-    public synchronized int getCardId(byte sak) throws InterruptedException, DlReaderException {
-        byte[] buffer = new byte[] { Consts.CMD_HEADER, Consts.GET_CARD_ID, Consts.CMD_TRAILER, 0, (byte)0xAA, (byte)0xCC, 0 };
-        byte bytes_to_read, temp_card_type;
-
-        if (open_index < 0) {
-            throw new DlReaderException("Device not opened.");
-        }
-
-        bytes_to_read = ComProtocol.initialHandshaking(buffer);
-        sak = buffer[Consts.VAL0_INDEX];
-
-        buffer = ComProtocol.portRead(bytes_to_read);
-        if (!ComProtocol.testChecksum(buffer, bytes_to_read))
-            throw new DlReaderException("UFR_COMMUNICATION_ERROR");
-
-        return buffer[0] << 24 | (buffer[1] & 0xFF) << 16 | (buffer[2] & 0xFF) << 8 | (buffer[3] & 0xFF);
-    }
-
-    public synchronized byte[] getCardIdEx(byte sak, byte uid_size) throws InterruptedException, DlReaderException {
+    public synchronized byte[] getCardIdEx(CardParams c_params) throws InterruptedException, DlReaderException {
         byte[] buffer = new byte[] {Consts.CMD_HEADER, Consts.GET_CARD_ID_EX, Consts.CMD_TRAILER, 0, (byte)0xAA, (byte)0xCC, 0 };
         byte[] tmp_buff;
         byte[] result;
         byte bytes_to_read;
+        byte sak, uid_size;
 
         if (open_index < 0) {
             throw new DlReaderException("Device not opened.");
@@ -260,6 +224,8 @@ public class DlReader {
         if (uid_size > 10)
             throw new DlReaderException("UFR_BUFFER_OVERFLOW");
 
+        c_params.setSak(sak);
+        c_params.setUidSize(uid_size);
         result = java.util.Arrays.copyOf(tmp_buff, uid_size);
         return result;
     }
@@ -369,22 +335,24 @@ public class DlReader {
         {
             // length = INTRO_SIZE, data[INTRO_SIZE] = checksum
             byte command = data[1];
+            byte[] rcv_data;
 
             erasePort();
             Thread.sleep(10);
             calcChecksum(data, Consts.INTRO_SIZE);
             portWrite(data, Consts.INTRO_SIZE);
-            data = portRead(Consts.INTRO_SIZE);
-            if (!testChecksum(data, Consts.INTRO_SIZE))
+            rcv_data = portRead(Consts.INTRO_SIZE);
+            if (!testChecksum(rcv_data, Consts.INTRO_SIZE))
                 throw new DlReaderException("UFR_COMMUNICATION_ERROR");
-            if ((data[0] == Consts.ERR_HEADER) && (data[2] == Consts.ERR_TRAILER))
-                throw new DlReaderException("Reader error code: " + data[1]);
+            if ((rcv_data[0] == Consts.ERR_HEADER) && (rcv_data[2] == Consts.ERR_TRAILER))
+                throw new DlReaderException("Reader error code: " + rcv_data[1], rcv_data[1] & 0xFF);
 
-            if ((data[1] != command)
-                    || (((data[0] != Consts.RESPONSE_HEADER) || (data[2] != Consts.RESPONSE_TRAILER))
-                    && ((data[0] != Consts.ACK_HEADER) || (data[2] != Consts.ACK_TRAILER))))
+            if ((rcv_data[1] != command)
+                    || (((rcv_data[0] != Consts.RESPONSE_HEADER) || (rcv_data[2] != Consts.RESPONSE_TRAILER))
+                    && ((rcv_data[0] != Consts.ACK_HEADER) || (rcv_data[2] != Consts.ACK_TRAILER))))
                 throw new DlReaderException("UFR_COMMUNICATION_ERROR");
 
+            java.lang.System.arraycopy(rcv_data, 0, data, 0, 7);
             return data[3];
         }
 
@@ -395,7 +363,7 @@ public class DlReader {
             if (!testChecksum(cmd_intro, Consts.INTRO_SIZE))
                 throw new DlReaderException("UFR_COMMUNICATION_ERROR");
             if ((cmd_intro[0] == Consts.ERR_HEADER) || (cmd_intro[2] == Consts.ERR_TRAILER))
-                throw new DlReaderException("Reader error code: " + cmd_intro[1]);
+                throw new DlReaderException("Reader error code: " + cmd_intro[1], cmd_intro[1] & 0xFF);
             if ((cmd_intro[0] != Consts.RESPONSE_HEADER) || (cmd_intro[2] != Consts.RESPONSE_TRAILER)
                     || (cmd_intro[1] != command))
                 throw new DlReaderException("UFR_COMMUNICATION_ERROR");
@@ -430,12 +398,18 @@ public class DlReader {
 
     public static class DlReaderException extends IOException {
         private static final long serialVersionUID = 1L;
+        public int err_code;
 
         public DlReaderException() {
         }
 
         public DlReaderException(String ftStatusMsg) {
             super(ftStatusMsg);
+        }
+
+        public DlReaderException(String ftStatusMsg, int p_err_code) {
+            super(ftStatusMsg);
+            err_code = p_err_code;
         }
     }
 
@@ -447,6 +421,32 @@ public class DlReader {
 
         public LocalException(String ftStatusMsg) {
             super(ftStatusMsg);
+        }
+    }
+
+    public static class CardParams {
+        private byte sak;
+        private byte uid_size;
+
+        public CardParams() {
+            sak = 0;
+            uid_size = 0;
+        }
+
+        public void setSak(byte p_sak) {
+            sak = p_sak;
+        }
+
+        public byte getSak() {
+            return sak;
+        }
+
+        public void setUidSize(byte p_uid_size) {
+            uid_size = p_uid_size;
+        }
+
+        public byte getUidSize() {
+            return uid_size;
         }
     }
 }
