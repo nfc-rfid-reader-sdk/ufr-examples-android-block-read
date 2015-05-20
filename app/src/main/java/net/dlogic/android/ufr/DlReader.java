@@ -188,7 +188,7 @@ public class DlReader {
         // or 1100 ms
     }
 
-    public synchronized int getReaderType() throws InterruptedException, DlReaderException {
+    public synchronized int getReaderType() throws DlReaderException, InterruptedException {
         byte[] buffer = new byte[] {Consts.CMD_HEADER, Consts.GET_READER_TYPE, Consts.CMD_TRAILER, 0, (byte)0xAA, (byte)0xCC, 0};
         byte bytes_to_read;
 
@@ -204,7 +204,13 @@ public class DlReader {
         return (buffer[0] & 0xFF) | (buffer[1] & 0xFF) << 8 | (buffer[2] & 0xFF) << 16 | (buffer[3] & 0xFF) << 24;
     }
 
-    public synchronized byte[] getCardIdEx(CardParams c_params) throws InterruptedException, DlReaderException {
+    public synchronized void readerUiSignal(byte lightSignalMode, byte beepSignalMode) throws DlReaderException, InterruptedException {
+        byte[] buffer = new byte[] {Consts.CMD_HEADER, Consts.USER_INTERFACE_SIGNAL, Consts.CMD_TRAILER, 0, lightSignalMode, beepSignalMode, 0};
+
+        ComProtocol.initialHandshaking(buffer);
+    }
+
+    public synchronized byte[] getCardIdEx(CardParams c_params) throws DlReaderException, InterruptedException {
         byte[] buffer = new byte[] {Consts.CMD_HEADER, Consts.GET_CARD_ID_EX, Consts.CMD_TRAILER, 0, (byte)0xAA, (byte)0xCC, 0 };
         byte[] tmp_buff;
         byte[] result;
@@ -232,7 +238,7 @@ public class DlReader {
         return result;
     }
 
-    public synchronized byte[] blockRead(byte block_address, byte auth_mode, byte[] key) throws InterruptedException, DlReaderException {
+    public synchronized byte[] blockRead(byte block_address, byte auth_mode, byte[] key) throws DlReaderException, InterruptedException {
         byte[] cmd_intro = new byte[] { Consts.CMD_HEADER, Consts.BLOCK_READ, Consts.CMD_TRAILER, 11, (byte)0xAA, (byte)0xCC, 0 };
         byte[] cmd_ext = new byte[11];
 
@@ -335,7 +341,6 @@ public class DlReader {
 
         public static byte initialHandshaking(byte[] data) throws InterruptedException, DlReaderException
         {
-            // length = INTRO_SIZE, data[INTRO_SIZE] = checksum
             byte command = data[1];
             byte[] rcv_data;
 

@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.text.TextUtils;
 import java.util.regex.Matcher;
@@ -22,20 +25,29 @@ import net.dlogic.android.ufr.DlReader;
 
 public class Main extends Activity {
     static Context context;
-    DeviceConnectionSynchronizer dev_con;
-    DlReader device;
-    String err_msg_tag;
-    Button btnOpen;
-    Button btnReaderType;
-    Button btnTagId;
-    Button btnBlockRead;
-    Button btnClose;
+    static DeviceConnectionSynchronizer dev_con;
+    static DlReader device;
+    static Button btnOpen;
+    static Button btnReaderType;
+    static Button btnTagId;
+    static Button btnBlockRead;
+    static Button btnClose;
+    static Button btnUiSignal;
     static EditText ebBlockAddr;
     static EditText ebDeviceType;
     static EditText ebTagId;
     static EditText ebTagUid;
     static EditText ebBlockData;
-    private static IncomingHandler handler = new IncomingHandler();
+    static EditText ebKey;
+    static Spinner spnLightMode;
+    static Spinner spnBeepMode;
+    static Spinner spnAuthenticationMode;
+    static int lightMode = 0;
+    static int beepMode = 0;
+    static int authenticationMode = DlReader.Consts.MIFARE_AUTHENT1A;
+    static IncomingHandler handler = new IncomingHandler();
+    static Resources res;
+    static int[] authModes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +62,10 @@ public class Main extends Activity {
         }
         dev_con = DeviceConnectionSynchronizer.getInstance();
 
+        // Get arrays from resources:
+        res = getResources();
+        authModes = res.getIntArray(R.array.authentication_mode_values);
+
         // Get references to UI widgets:
         ebBlockAddr = (EditText) findViewById(R.id.ebBlockAddr);
         ebDeviceType = (EditText) findViewById(R.id.ebDeviceType);
@@ -60,27 +76,73 @@ public class Main extends Activity {
         ebTagUid.setInputType(0);
         ebBlockData = (EditText) findViewById(R.id.ebBlockData);
         ebBlockData.setInputType(0);
+        ebKey = (EditText) findViewById(R.id.ebKey);
 
         btnOpen = (Button) findViewById(R.id.btnOpen);
         btnReaderType = (Button) findViewById(R.id.btnDeviceType);
         btnTagId = (Button) findViewById(R.id.btnTagId);
         btnBlockRead = (Button) findViewById(R.id.btnBlockRead);
         btnClose = (Button) findViewById(R.id.btnClose);
+        btnUiSignal = (Button) findViewById(R.id.btnUiSignal);
 
-        Resources res = getResources();
-        err_msg_tag = res.getString(R.string.app_name);
+        spnLightMode = (Spinner) findViewById(R.id.spnLightMode);
+        ArrayAdapter<CharSequence> spnLightAdapter = ArrayAdapter.createFromResource(context,
+                R.array.light_signal_modes,
+                R.layout.dl_spinner_textview);
+        spnLightAdapter.setDropDownViewResource(R.layout.dl_spinner_textview);
+        spnLightMode.setAdapter(spnLightAdapter);
+        spnLightMode.setSelection(0);
+        spnLightMode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                lightMode = pos;
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) { }
+        });
+
+        spnBeepMode = (Spinner) findViewById(R.id.spnBeepMode);
+        ArrayAdapter<CharSequence> spnBeepAdapter = ArrayAdapter.createFromResource(context,
+                R.array.beep_signal_modes,
+                R.layout.dl_spinner_textview);
+        spnBeepAdapter.setDropDownViewResource(R.layout.dl_spinner_textview);
+        spnBeepMode.setAdapter(spnBeepAdapter);
+        spnBeepMode.setSelection(0);
+        spnBeepMode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                beepMode = pos;
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        spnAuthenticationMode = (Spinner) findViewById(R.id.spnAuthenticationMode);
+        ArrayAdapter<CharSequence> spnAuthenticationAdapter = ArrayAdapter.createFromResource(context,
+                R.array.authentication_mode_names,
+                R.layout.dl_spinner_textview);
+        spnAuthenticationAdapter.setDropDownViewResource(R.layout.dl_spinner_textview);
+        spnAuthenticationMode.setAdapter(spnAuthenticationAdapter);
+        spnAuthenticationMode.setSelection(0);
+        spnAuthenticationMode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                authenticationMode = Main.authModes[pos];
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) { }
+        });
 
         btnOpen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (dev_con.isConnected()) {
-                    Toast.makeText(context, "Device already connected...", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                    Toast.makeText(context, "Device already connected.", Toast.LENGTH_SHORT).show();
+                } else {
                     if (!dev_con.isConnectingInProgress()) {
                         new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
                         dev_con.beginConnection();
-                    }
-                    else {
+                    } else {
                         Toast.makeText(context, "Connecting in progress.", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -94,9 +156,8 @@ public class Main extends Activity {
                     } catch (Exception e) {
                         Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
                     }
-                }
-                else {
-                    Toast.makeText(context, "Device not connected...", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -108,9 +169,8 @@ public class Main extends Activity {
                     } catch (Exception e) {
                         Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
                     }
-                }
-                else {
-                    Toast.makeText(context, "Device not connected...", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -121,22 +181,23 @@ public class Main extends Activity {
                         int i = Integer.parseInt(ebBlockAddr.getText().toString());
                         if ((i >= 0) && (i < Consts.MAX_BLOCK_ADDR)) {
                             dev_con.setBlockAddr((byte) i);
-                            try {
-                                new Thread(new ReaderThread(Consts.TASK_BLOCK_READ)).start();
-                            } catch (Exception e) {
-                                Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+                            if (dev_con.setKey(ebKey.getText().toString())) {
+                                try {
+                                    new Thread(new ReaderThread(Consts.TASK_BLOCK_READ)).start();
+                                } catch (Exception e) {
+                                    Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(context, "Wrong key format. Key must be HEX string 6 bytes long.", Toast.LENGTH_LONG).show();
                             }
-                        }
-                        else {
+                        } else {
                             Toast.makeText(context, "Wrong block address.", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                    else {
+                    } else {
                         Toast.makeText(context, "Block address must be a number.", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else {
-                    Toast.makeText(context, "Device not connected...", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -148,13 +209,23 @@ public class Main extends Activity {
                     ebTagId.setText("");
                     ebTagUid.setText("");
                     ebBlockData.setText("");
+                    ebKey.setText("FFFFFFFFFFFF");
+                    dev_con.makeKeyDefault();
                     new Thread(new ReaderThread(Consts.TASK_DISCONNECT)).start();
                 } else {
-                    Toast.makeText(context, "Device not connected...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
+        btnUiSignal.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (dev_con.isConnected()) {
+                    new Thread(new ReaderThread(Consts.TASK_EMIT_UI_SIGNAL)).start();
+                } else {
+                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     static class IncomingHandler extends Handler {
@@ -172,12 +243,12 @@ public class Main extends Activity {
 
                 case Consts.RESPONSE_CARD_ID:
                     ebTagId.setText(Integer.toHexString(msg.arg1));
-                    ebTagUid.setText(Tools.byteA2Str((byte[])msg.obj));
+                    ebTagUid.setText(Tools.byteArr2Str((byte[]) msg.obj));
                     Toast.makeText(context, "Card Id obtained successfully.", Toast.LENGTH_SHORT).show();
                     break;
 
                 case Consts.RESPONSE_BLOCK_READ:
-                    ebBlockData.setText(Tools.byteA2Str((byte[])msg.obj));
+                    ebBlockData.setText(Tools.byteArr2Str((byte[]) msg.obj));
                     Toast.makeText(context, "Block successfully read.", Toast.LENGTH_SHORT).show();
                     break;
 
@@ -187,6 +258,9 @@ public class Main extends Activity {
 
                 case Consts.RESPONSE_ERROR:
                     Toast.makeText(context, (String)msg.obj, Toast.LENGTH_SHORT).show();
+                    if (dev_con.isConnectingInProgress()) {
+                        dev_con.abortConnection();
+                    }
                     break;
 
                 default:
@@ -202,6 +276,7 @@ public class Main extends Activity {
         public static final int TASK_GET_CARD_ID = 3;
         public static final int TASK_BLOCK_READ = 4;
         public static final int TASK_DISCONNECT = 5;
+        public static final int TASK_EMIT_UI_SIGNAL = 6;
 
         public static final int RESPONSE_CONNECTED = 100;
         public static final int RESPONSE_READER_TYPE = 101;
@@ -218,7 +293,6 @@ public class Main extends Activity {
     class ReaderThread implements Runnable {
         private int task;
         private byte[]data;
-        byte[] default_key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
         DlReader.CardParams c_params = new DlReader.CardParams();
 
         public ReaderThread(int ptask)  {
@@ -258,7 +332,7 @@ public class Main extends Activity {
 
                 case Consts.TASK_BLOCK_READ:
                     try {
-                        data = device.blockRead(dev_con.getBlockAddr(), Consts.DEFAULT_AUTH_MODE, default_key);
+                        data = device.blockRead(dev_con.getBlockAddr(), (byte)authenticationMode, dev_con.getKey());
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_BLOCK_READ, 0, 0, data));
                     } catch(Exception e) {
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, 0, 0, e.getMessage()));
@@ -275,6 +349,14 @@ public class Main extends Activity {
                     }
                     break;
 
+                case Consts.TASK_EMIT_UI_SIGNAL:
+                    try {
+                        device.readerUiSignal((byte)lightMode, (byte)beepMode);
+                    } catch (Exception e) {
+                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, 0, 0, e.getMessage()));
+                    }
+                    break;
+
                 default:
                     break;
             }
@@ -286,6 +368,8 @@ public class Main extends Activity {
         private byte block_addr;
         private boolean is_connected = false;
         private boolean connecting_in_progress = false;
+        static final byte[] default_key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
+        static byte[] key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
 
         static synchronized DeviceConnectionSynchronizer getInstance() {
             if (dcs == null) {
@@ -322,6 +406,34 @@ public class Main extends Activity {
         synchronized boolean isConnectingInProgress() {
             return connecting_in_progress;
         }
+
+        synchronized void abortConnection() {
+            connecting_in_progress = false;
+        }
+
+        synchronized void makeKeyDefault() {
+            java.lang.System.arraycopy(default_key, 0, key, 0, 6);
+        }
+
+        synchronized boolean setKey(String keyHexStr) {
+
+            if (keyHexStr.length() != 12) {
+                return false;
+            }
+            if (!keyHexStr.matches("[0-9A-Fa-f]+")) {
+                return false;
+            }
+            for (int i = 0; i < 12; i += 2) {
+                key[i / 2] = (byte) ((Character.digit(keyHexStr.charAt(i), 16) << 4)
+                        + Character.digit(keyHexStr.charAt(i+1), 16));
+            }
+            return true;
+        }
+
+        synchronized byte[] getKey() {
+            return key;
+        }
+
     }
 
     static class Tools {
@@ -335,11 +447,11 @@ public class Main extends Activity {
             return m.matches();
         }
 
-        public static String byteA2Str(byte[] a) {
-            StringBuilder sb = new StringBuilder(a.length * 2);
-            for(byte b: a)
-                sb.append(String.format("%02x", b & 0xff));
-            return sb.toString();
+        public static String byteArr2Str(byte[] byteArray) {
+            StringBuilder sBuilder = new StringBuilder(byteArray.length * 2);
+            for(byte b: byteArray)
+                sBuilder.append(String.format("%02x", b & 0xff));
+            return sBuilder.toString();
         }
     }
 }
