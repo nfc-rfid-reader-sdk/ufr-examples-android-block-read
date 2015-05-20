@@ -21,13 +21,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e41b55e-f4b4-4855-9e61-6bc058ccd2c8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
     </list>
     <ignored path="block_read.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,39 +51,15 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.6091547">
+            <state vertical-scroll-proportion="0.7355278">
               <caret line="270" column="5" selection-start-line="270" selection-start-column="5" selection-end-line="270" selection-end-column="5" />
               <folding>
                 <element signature="class#3400:3659" expanded="false" />
                 <element signature="class#4123:4393" expanded="false" />
                 <element signature="class#4945:5229" expanded="false" />
-                <element signature="e#5268#5900#0" expanded="true" />
-                <element signature="e#5899#5900#0" expanded="true" />
-                <element signature="e#5944#6496#0" expanded="true" />
-                <element signature="e#6495#6496#0" expanded="true" />
-                <element signature="e#6535#7083#0" expanded="true" />
-                <element signature="e#7082#7083#0" expanded="true" />
-                <element signature="e#7126#8636#0" expanded="true" />
-                <element signature="e#8635#8636#0" expanded="true" />
-                <element signature="e#8675#9353#0" expanded="true" />
-                <element signature="e#9352#9353#0" expanded="true" />
-                <element signature="e#9395#9760#0" expanded="true" />
-                <element signature="e#9759#9760#0" expanded="true" />
                 <element signature="class#Consts#0;class#Main#0" expanded="false" />
                 <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-                <element signature="e#12656#12657#0" expanded="true" />
-                <element signature="e#12692#12693#0" expanded="true" />
                 <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-                <element signature="e#16437#16438#0" expanded="true" />
-                <element signature="e#16481#16482#0" expanded="true" />
-                <element signature="e#16791#16792#0" expanded="true" />
-                <element signature="e#16844#16845#0" expanded="true" />
-                <element signature="e#16901#16902#0" expanded="true" />
-                <element signature="e#16954#16955#0" expanded="true" />
-                <element signature="e#17001#17002#0" expanded="true" />
-                <element signature="e#17055#17056#0" expanded="true" />
-                <element signature="e#17713#17714#0" expanded="true" />
-                <element signature="e#17747#17748#0" expanded="true" />
                 <element signature="class#Tools#0;class#Main#0" expanded="false" />
               </folding>
             </state>
@@ -1472,8 +1448,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1574,8 +1550,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1806,7 +1782,6 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933994" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1828,6 +1803,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1883,33 +1859,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1947,33 +1899,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2011,33 +1939,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2083,33 +1987,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2147,33 +2027,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2211,33 +2067,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2275,33 +2107,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2361,33 +2169,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2408,33 +2192,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2455,33 +2215,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2519,33 +2255,9 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -2559,49 +2271,11 @@
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/SystemInfo_2015.05.16_16.17.49.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/SystemInfo_2015.05.16_16.18.26.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2702,7 +2376,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.36">
           <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2715,14 +2388,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dl_spinner_textview.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13967136">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
@@ -2774,51 +2447,27 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
           <folding />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/net/dlogic/android/ufr/block_read_example/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.6091547">
+        <state vertical-scroll-proportion="0.7355278">
           <caret line="270" column="5" selection-start-line="270" selection-start-column="5" selection-end-line="270" selection-end-column="5" />
           <folding>
             <element signature="class#3400:3659" expanded="false" />
             <element signature="class#4123:4393" expanded="false" />
             <element signature="class#4945:5229" expanded="false" />
-            <element signature="e#5268#5900#0" expanded="true" />
-            <element signature="e#5899#5900#0" expanded="true" />
-            <element signature="e#5944#6496#0" expanded="true" />
-            <element signature="e#6495#6496#0" expanded="true" />
-            <element signature="e#6535#7083#0" expanded="true" />
-            <element signature="e#7082#7083#0" expanded="true" />
-            <element signature="e#7126#8636#0" expanded="true" />
-            <element signature="e#8635#8636#0" expanded="true" />
-            <element signature="e#8675#9353#0" expanded="true" />
-            <element signature="e#9352#9353#0" expanded="true" />
-            <element signature="e#9395#9760#0" expanded="true" />
-            <element signature="e#9759#9760#0" expanded="true" />
             <element signature="class#Consts#0;class#Main#0" expanded="false" />
             <element signature="class#ReaderThread#0;class#Main#0" expanded="false" />
-            <element signature="e#12656#12657#0" expanded="true" />
-            <element signature="e#12692#12693#0" expanded="true" />
             <element signature="class#DeviceConnectionSynchronizer#0;class#Main#0" expanded="false" />
-            <element signature="e#16437#16438#0" expanded="true" />
-            <element signature="e#16481#16482#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16844#16845#0" expanded="true" />
-            <element signature="e#16901#16902#0" expanded="true" />
-            <element signature="e#16954#16955#0" expanded="true" />
-            <element signature="e#17001#17002#0" expanded="true" />
-            <element signature="e#17055#17056#0" expanded="true" />
-            <element signature="e#17713#17714#0" expanded="true" />
-            <element signature="e#17747#17748#0" expanded="true" />
             <element signature="class#Tools#0;class#Main#0" expanded="false" />
           </folding>
         </state>
