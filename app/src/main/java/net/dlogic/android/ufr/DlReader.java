@@ -266,7 +266,10 @@ public class DlReader {
 
     public synchronized void leaveSleepMode() throws DlReaderException, InterruptedException {
         byte[] buffer = new byte[] {Consts.CMD_HEADER, Consts.LEAVE_SLEEP_MODE, Consts.CMD_TRAILER, 0, (byte)0xAA, (byte)0xCC, 0};
+        byte[] dummy = new byte[] {0};
 
+        // First write one dummy byte to a port:
+        ComProtocol.portWrite(dummy, 1);
         ComProtocol.initialHandshaking(buffer);
     }
 
