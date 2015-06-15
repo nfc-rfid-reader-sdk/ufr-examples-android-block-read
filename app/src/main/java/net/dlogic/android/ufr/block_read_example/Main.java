@@ -33,6 +33,8 @@ public class Main extends Activity {
     static Button btnBlockRead;
     static Button btnClose;
     static Button btnUiSignal;
+    static Button btnEnterSleep;
+    static Button btnLeaveSleep;
     static EditText ebBlockAddr;
     static EditText ebDeviceType;
     static EditText ebTagId;
@@ -84,6 +86,8 @@ public class Main extends Activity {
         btnBlockRead = (Button) findViewById(R.id.btnBlockRead);
         btnClose = (Button) findViewById(R.id.btnClose);
         btnUiSignal = (Button) findViewById(R.id.btnUiSignal);
+        btnEnterSleep = (Button) findViewById(R.id.btnEnterSleep);
+        btnLeaveSleep = (Button) findViewById(R.id.btnLeaveSleep);
 
         spnLightMode = (Spinner) findViewById(R.id.spnLightMode);
         ArrayAdapter<CharSequence> spnLightAdapter = ArrayAdapter.createFromResource(context,
@@ -131,7 +135,8 @@ public class Main extends Activity {
                 authenticationMode = Main.authModes[pos];
             }
 
-            public void onNothingSelected(AdapterView<?> parent) { }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
         btnOpen.setOnClickListener(new View.OnClickListener() {
@@ -226,6 +231,24 @@ public class Main extends Activity {
                 }
             }
         });
+        btnEnterSleep.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (dev_con.isConnected()) {
+                    new Thread(new ReaderThread(Consts.TASK_ENTER_SLEEP)).start();
+                } else {
+                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btnLeaveSleep.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (dev_con.isConnected()) {
+                    new Thread(new ReaderThread(Consts.TASK_LEAVE_SLEEP)).start();
+                } else {
+                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     static class IncomingHandler extends Handler {
@@ -277,6 +300,8 @@ public class Main extends Activity {
         public static final int TASK_BLOCK_READ = 4;
         public static final int TASK_DISCONNECT = 5;
         public static final int TASK_EMIT_UI_SIGNAL = 6;
+        public static final int TASK_ENTER_SLEEP = 7;
+        public static final int TASK_LEAVE_SLEEP = 8;
 
         public static final int RESPONSE_CONNECTED = 100;
         public static final int RESPONSE_READER_TYPE = 101;
@@ -332,7 +357,7 @@ public class Main extends Activity {
 
                 case Consts.TASK_BLOCK_READ:
                     try {
-                        data = device.blockRead(dev_con.getBlockAddr(), (byte)authenticationMode, dev_con.getKey());
+                        data = device.blockRead(dev_con.getBlockAddr(), (byte) authenticationMode, dev_con.getKey());
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_BLOCK_READ, 0, 0, data));
                     } catch(Exception e) {
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, 0, 0, e.getMessage()));
@@ -351,7 +376,23 @@ public class Main extends Activity {
 
                 case Consts.TASK_EMIT_UI_SIGNAL:
                     try {
-                        device.readerUiSignal((byte)lightMode, (byte)beepMode);
+                        device.readerUiSignal((byte) lightMode, (byte) beepMode);
+                    } catch (Exception e) {
+                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, 0, 0, e.getMessage()));
+                    }
+                    break;
+
+                case Consts.TASK_ENTER_SLEEP:
+                    try {
+                        device.enterSleepMode();
+                    } catch (Exception e) {
+                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, 0, 0, e.getMessage()));
+                    }
+                    break;
+
+                case Consts.TASK_LEAVE_SLEEP:
+                    try {
+                        device.leaveSleepMode();
                     } catch (Exception e) {
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, 0, 0, e.getMessage()));
                     }

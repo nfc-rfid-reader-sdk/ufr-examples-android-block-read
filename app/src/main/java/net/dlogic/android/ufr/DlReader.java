@@ -99,6 +99,8 @@ public class DlReader {
         public static final byte BLOCK_READ = 0x16;
         public static final byte SOFT_RESTART = 0x30;
         public static final byte USER_INTERFACE_SIGNAL = 0x26;
+        public static final byte ENTER_SLEEP_MODE = 0x46;
+        public static final byte LEAVE_SLEEP_MODE = 0x47;
 
         public static final int DL_READER_GENERAL_EXCEPTION = 1000;
     }
@@ -254,6 +256,18 @@ public class DlReader {
 
         java.lang.System.arraycopy(key, 0, cmd_ext, Consts.CMD_EXT_PROVIDED_KEY_INDEX, 6);
         return ComProtocol.commonBlockRead(cmd_intro, cmd_ext, (byte)17);
+    }
+
+    public synchronized void enterSleepMode() throws DlReaderException, InterruptedException {
+        byte[] buffer = new byte[] {Consts.CMD_HEADER, Consts.ENTER_SLEEP_MODE, Consts.CMD_TRAILER, 0, (byte)0xAA, (byte)0xCC, 0};
+
+        ComProtocol.initialHandshaking(buffer);
+    }
+
+    public synchronized void leaveSleepMode() throws DlReaderException, InterruptedException {
+        byte[] buffer = new byte[] {Consts.CMD_HEADER, Consts.LEAVE_SLEEP_MODE, Consts.CMD_TRAILER, 0, (byte)0xAA, (byte)0xCC, 0};
+
+        ComProtocol.initialHandshaking(buffer);
     }
 
     public synchronized void close() throws DlReaderException {

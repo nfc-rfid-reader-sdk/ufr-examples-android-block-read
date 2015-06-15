@@ -224,7 +224,7 @@
                 <Button
                     android:id="@+id/btnDeviceType"
                     android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_height="85dp"
                     android:layout_margin="3dp"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
@@ -236,7 +236,7 @@
                 <Button
                     android:id="@+id/btnUiSignal"
                     android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_height="85dp"
                     android:layout_margin="3dp"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
@@ -247,25 +247,63 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btnTagId"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="60dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/button_pattern"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:text="Get Card Id" />
+                android:layout_height="wrap_content" >
 
-            <Button
-                android:id="@+id/btnBlockRead"
+                <Button
+                    android:id="@+id/btnTagId"
+                    android:layout_width="0dp"
+                    android:layout_height="65dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/button_pattern"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:text="Get Card Id"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnBlockRead"
+                    android:layout_width="0dp"
+                    android:layout_height="65dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/button_pattern"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:text="Read Block"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="60dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/button_pattern"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:text="Read Block" />
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/btnEnterSleep"
+                    android:layout_width="0dp"
+                    android:layout_height="65dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/button_pattern"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:text="Enter Sleep"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical" />
+
+                <Button
+                    android:id="@+id/btnLeaveSleep"
+                    android:layout_width="0dp"
+                    android:layout_height="65dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/button_pattern"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:text="Leave Sleep"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnClose"
