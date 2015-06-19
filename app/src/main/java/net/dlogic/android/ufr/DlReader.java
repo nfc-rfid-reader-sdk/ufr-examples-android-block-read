@@ -114,8 +114,9 @@ public class DlReader {
                                                 "uFR ADVANCE",
                                                 "uFR CLASSIC",
                                                 "uFR PRO",
+                                                "nFR USB PRO",
                                                 "uFR XR CLASSICu",
-                                                "uFR XRC  CLASSIC"
+                                                "uFR XRC  CLASSIC",
                                                 };
 
         dev_cnt = ftD2xx.createDeviceInfoList(parentContext);
