@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="authentication_mode_names">
+		<item>Authent1 A keys</item>
+		<item>Authent1 B keys</item>
+	</string-array>
+    <integer-array name="authentication_mode_values">
+		<item>96</item>
+		<item>97</item>
+	</integer-array>
+    <string-array name="beep_signal_modes">
+		<item>None</item>
+		<item>Beep mode 1</item>
+		<item>Beep mode 2</item>
+		<item>Beep mode 3</item>
+		<item>Beep mode 4</item>
+		<item>Beep mode 5</item>
+	</string-array>
+    <string-array name="light_signal_modes">
+		<item>None</item>
+		<item>Light mode 1</item>
+		<item>Light mode 2</item>
+		<item>Light mode 3</item>
+		<item>Light mode 4</item>
+	</string-array>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="app_name">DLogic uFR block read demo</string>
+    <string name="title_activity_main">DLogic uFR block read demo</string>
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

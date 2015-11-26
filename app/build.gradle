@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 15
+    buildToolsVersion "23.0.2"
+
     defaultConfig {
-        applicationId "net.dlogic.my.myapplication"
+        applicationId "net.dlogic.android.ufr.block_read_example"
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 15
         versionCode 1
         versionName "1.0"
     }
@@ -16,11 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
-    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
     compile files('libs/d2xx.jar')
 }

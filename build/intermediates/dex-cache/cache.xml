@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\android\AndroidStudioProjects\block_read\app\libs\d2xx.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b6dc4a96ed7888af4bce553f6fbe9c44a5e7719f">
+        <dex dex="C:\android\AndroidStudioProjects\block_read\app\build\intermediates\pre-dexed\debug\d2xx_6006a0857282ae0bd392271ff49fa77572880987.jar" />
+    </item>
+
+</items>
