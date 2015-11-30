@@ -139,6 +139,9 @@ public class DlReader {
                     if ((ft_device != null) && ft_device.isOpen()) {
 
                         try {
+                            if (!ft_device.setEventNotification(D2xxManager.FT_EVENT_REMOVED)) { //D2xxManager.FT_EVENT_REMOVED
+                                throw new LocalException();
+                            }
                             if (!ft_device.setLatencyTimer(ComParams.LATENCY_TIMER)) {
                                 throw new LocalException();
                             }
@@ -285,6 +288,10 @@ public class DlReader {
         ComProtocol.initialHandshaking(buffer);
     }
 
+    public synchronized boolean readerStillConnected() {
+        return ft_device.isOpen();
+    }
+
     public synchronized void close() throws DlReaderException {
 
         open_index = -1;
@@ -301,7 +308,10 @@ public class DlReader {
         public static void portWrite(byte[] buffer, int buffer_size) throws DlReaderException
         {
             if (ft_device.write(buffer, buffer_size) != buffer_size) {
-                throw new DlReaderException("UFR_COMMUNICATION_BREAK");
+                if (ft_device.isOpen())
+                    throw new DlReaderException("UFR_COMMUNICATION_BREAK");
+                else
+                    throw new DlReaderException("UFR_DISCONNECTED");
             }
         }
 
@@ -311,7 +321,10 @@ public class DlReader {
             java.util.Arrays.fill(buffer, (byte) 0);
 
             if (ft_device.read(buffer, buffer_size, ComParams.READ_TIMEOUT) != buffer_size) {
-                throw new DlReaderException("UFR_COMMUNICATION_BREAK");
+                if (ft_device.isOpen())
+                    throw new DlReaderException("UFR_COMMUNICATION_BREAK");
+                else
+                    throw new DlReaderException("UFR_DISCONNECTED");
             }
 
             return buffer;
