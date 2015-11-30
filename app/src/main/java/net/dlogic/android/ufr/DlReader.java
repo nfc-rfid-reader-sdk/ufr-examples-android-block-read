@@ -121,7 +121,7 @@ public class DlReader {
 
         dev_cnt = ftD2xx.createDeviceInfoList(parentContext);
 
-        for (int outer_cnt = 0; outer_cnt < dev_cnt; dev_cnt++) {
+        for (int outer_cnt = 0; outer_cnt < dev_cnt; outer_cnt++) {
 
             dev_infolist = ftD2xx.getDeviceInfoListDetail(outer_cnt);
             for (int inner_cnt = 0; inner_cnt < dl_descriptors.length; inner_cnt++) {
@@ -467,7 +467,7 @@ public class DlReader {
             sak = p_sak;
         }
 
-        public byte getSak() {;
+        public byte getSak() {
             return sak;
         }
 
