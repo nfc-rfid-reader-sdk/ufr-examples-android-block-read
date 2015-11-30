@@ -107,6 +107,7 @@ public class DlReader {
 
     public synchronized void open() throws DlReaderException {
         int dev_cnt;
+        boolean already_opened = false;
         D2xxManager.FtDeviceInfoListNode dev_infolist;
         String[] dl_descriptors = new String[] {"nFR RS232 CLASSIC (OEM)",
                                                 "nFR RS232 CLASSIC",
@@ -124,9 +125,15 @@ public class DlReader {
         for (int outer_cnt = 0; outer_cnt < dev_cnt; outer_cnt++) {
 
             dev_infolist = ftD2xx.getDeviceInfoListDetail(outer_cnt);
-            for (int inner_cnt = 0; inner_cnt < dl_descriptors.length; inner_cnt++) {
 
+            for (int inner_cnt = 0; inner_cnt < dl_descriptors.length; inner_cnt++) {
                 if (dev_infolist.description.equals(dl_descriptors[inner_cnt])) {
+
+                    if ((dev_infolist.flags & D2xxManager.FT_FLAGS_OPENED) == D2xxManager.FT_FLAGS_OPENED) {
+                        already_opened = true;
+                        break;
+                    }
+
                     ft_device = ftD2xx.openByIndex(parentContext, outer_cnt);
 
                     if ((ft_device != null) && ft_device.isOpen()) {
@@ -164,7 +171,11 @@ public class DlReader {
                 }
             }
         }
-        throw new DlReaderException("There is no D-Logic devices attached.");
+        if (already_opened) {
+            throw new DlReaderException("There is already opened D-Logic devices.");
+        } else {
+            throw new DlReaderException("There is no D-Logic devices attached.");
+        }
     }
 
     public synchronized void readerReset() throws DlReaderException, InterruptedException {
