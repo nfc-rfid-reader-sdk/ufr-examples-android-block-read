@@ -1,7 +1,18 @@
 package net.dlogic.android.ufr;
 
 /**
- * Created by zborac on 12.5.2015..
+ * Created by zborac on 12.5.2015.
+ *
+ * 1.12.2015. class DlReader v1.5
+ *            - New method:
+ *                  public synchronized boolean readerStillConnected()
+ *                      returns true if device still connected to the system (false otherwise).
+ *            - New Status Consts in DlReader.DlReaderException (defined in DlReader.Consts):
+ *                  public static final int DL_READER_COMMUNICATION_BREAK = 0x50;
+ *                      raised when there is communication problem (mostly hardware problems).
+ *                  public static final int DL_READER_IS_NOT_CONNECTED = 0x104;
+ *                      raised when the device is disconnected from the Android system (if device is
+ *                      still attached to the system check cable, connectors and/or device).
  */
 
 import java.io.IOException;
@@ -102,6 +113,9 @@ public class DlReader {
         public static final byte ENTER_SLEEP_MODE = 0x46;
         public static final byte LEAVE_SLEEP_MODE = 0x47;
 
+        // uFR Status:
+        public static final int DL_READER_COMMUNICATION_BREAK = 0x50;
+        public static final int DL_READER_IS_NOT_CONNECTED = 0x104;
         public static final int DL_READER_GENERAL_EXCEPTION = 1000;
     }
 
@@ -309,9 +323,9 @@ public class DlReader {
         {
             if (ft_device.write(buffer, buffer_size) != buffer_size) {
                 if (ft_device.isOpen())
-                    throw new DlReaderException("UFR_COMMUNICATION_BREAK");
+                    throw new DlReaderException("UFR COMMUNICATION BREAK", Consts.DL_READER_COMMUNICATION_BREAK);
                 else
-                    throw new DlReaderException("UFR_DISCONNECTED");
+                    throw new DlReaderException("UFR DEVICE IS NOT CONNECTED", Consts.DL_READER_IS_NOT_CONNECTED);
             }
         }
 
@@ -322,9 +336,9 @@ public class DlReader {
 
             if (ft_device.read(buffer, buffer_size, ComParams.READ_TIMEOUT) != buffer_size) {
                 if (ft_device.isOpen())
-                    throw new DlReaderException("UFR_COMMUNICATION_BREAK");
+                    throw new DlReaderException("UFR COMMUNICATION BREAK", Consts.DL_READER_COMMUNICATION_BREAK);
                 else
-                    throw new DlReaderException("UFR_DISCONNECTED");
+                    throw new DlReaderException("UFR DEVICE IS NOT CONNECTED", Consts.DL_READER_IS_NOT_CONNECTED);
             }
 
             return buffer;
