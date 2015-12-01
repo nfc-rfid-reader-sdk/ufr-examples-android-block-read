@@ -27,11 +27,12 @@ public class Main extends Activity {
     static Context context;
     static DeviceConnectionSynchronizer dev_con;
     static DlReader device;
-    static Button btnOpen;
+    static ReaderConnectionStatus dev_con_status;
+//    static Button btnOpen;
+//    static Button btnClose;
     static Button btnReaderType;
     static Button btnTagId;
     static Button btnBlockRead;
-    static Button btnClose;
     static Button btnUiSignal;
     static Button btnEnterSleep;
     static Button btnLeaveSleep;
@@ -64,6 +65,9 @@ public class Main extends Activity {
         }
         dev_con = DeviceConnectionSynchronizer.getInstance();
 
+        dev_con_status = new ReaderConnectionStatus();
+        new Thread(dev_con_status).start();
+
         // Get arrays from resources:
         res = getResources();
         authModes = res.getIntArray(R.array.authentication_mode_values);
@@ -80,11 +84,11 @@ public class Main extends Activity {
         ebBlockData.setInputType(0);
         ebKey = (EditText) findViewById(R.id.ebKey);
 
-        btnOpen = (Button) findViewById(R.id.btnOpen);
+//        btnOpen = (Button) findViewById(R.id.btnOpen);
+//        btnClose = (Button) findViewById(R.id.btnClose);
         btnReaderType = (Button) findViewById(R.id.btnDeviceType);
         btnTagId = (Button) findViewById(R.id.btnTagId);
         btnBlockRead = (Button) findViewById(R.id.btnBlockRead);
-        btnClose = (Button) findViewById(R.id.btnClose);
         btnUiSignal = (Button) findViewById(R.id.btnUiSignal);
         btnEnterSleep = (Button) findViewById(R.id.btnEnterSleep);
         btnLeaveSleep = (Button) findViewById(R.id.btnLeaveSleep);
@@ -139,20 +143,20 @@ public class Main extends Activity {
             }
         });
 
-        btnOpen.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (dev_con.isConnected()) {
-                    Toast.makeText(context, "Device already connected.", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (!dev_con.isConnectingInProgress()) {
-                        new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
-                        dev_con.beginConnection();
-                    } else {
-                        Toast.makeText(context, "Connecting in progress.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
+//        btnOpen.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                if (dev_con.isConnected()) {
+//                    Toast.makeText(context, "Device already connected.", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    if (!dev_con.isConnectingInProgress()) {
+//                        new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
+//                        dev_con.beginConnection();
+//                    } else {
+//                        Toast.makeText(context, "Connecting in progress.", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            }
+//        });
         btnReaderType.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (dev_con.isConnected()) {
@@ -206,22 +210,22 @@ public class Main extends Activity {
                 }
             }
         });
-        btnClose.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (dev_con.isConnected()) {
-                    ebBlockAddr.setText("0");
-                    ebDeviceType.setText("");
-                    ebTagId.setText("");
-                    ebTagUid.setText("");
-                    ebBlockData.setText("");
-                    ebKey.setText("FFFFFFFFFFFF");
-                    dev_con.makeKeyDefault();
-                    new Thread(new ReaderThread(Consts.TASK_DISCONNECT)).start();
-                } else {
-                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        btnClose.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                if (dev_con.isConnected()) {
+//                    ebBlockAddr.setText("0");
+//                    ebDeviceType.setText("");
+//                    ebTagId.setText("");
+//                    ebTagUid.setText("");
+//                    ebBlockData.setText("");
+//                    ebKey.setText("FFFFFFFFFFFF");
+//                    dev_con.makeKeyDefault();
+//                    new Thread(new ReaderThread(Consts.TASK_DISCONNECT)).start();
+//                } else {
+//                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
         btnUiSignal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (dev_con.isConnected()) {
@@ -256,6 +260,7 @@ public class Main extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case Consts.RESPONSE_CONNECTED:
+                    dev_con_status.setConnected(true);
                     Toast.makeText(context, "Device successfully connected.", Toast.LENGTH_SHORT).show();
                     break;
 
@@ -276,11 +281,27 @@ public class Main extends Activity {
                     break;
 
                 case Consts.RESPONSE_DISCONNECTED:
+                    dev_con_status.setConnected(false);
+
+                    ebBlockAddr.setText("0");
+                    ebDeviceType.setText("");
+                    ebTagId.setText("");
+                    ebTagUid.setText("");
+                    ebBlockData.setText("");
+                    ebKey.setText("FFFFFFFFFFFF");
+                    dev_con.makeKeyDefault();
+
                     Toast.makeText(context, "Device successfully disconnected.", Toast.LENGTH_SHORT).show();
                     break;
 
                 case Consts.RESPONSE_ERROR:
                     Toast.makeText(context, (String)msg.obj, Toast.LENGTH_SHORT).show();
+                    if (dev_con.isConnectingInProgress()) {
+                        dev_con.abortConnection();
+                    }
+                    break;
+
+                case Consts.RESPONSE_ERROR_QUIETLY:
                     if (dev_con.isConnectingInProgress()) {
                         dev_con.abortConnection();
                     }
@@ -310,9 +331,49 @@ public class Main extends Activity {
         public static final int RESPONSE_DISCONNECTED = 104;
 
         public static final int RESPONSE_ERROR = 400;
+        public static final int RESPONSE_ERROR_QUIETLY = 401;
 
         public static final int MAX_BLOCK_ADDR = 255;
         public static final byte DEFAULT_AUTH_MODE = DlReader.Consts.MIFARE_AUTHENT1A;
+    }
+
+    class ReaderConnectionStatus implements Runnable {
+        private boolean stop_request = false;
+        private boolean connected = false;
+
+        synchronized final boolean ishalted() {
+            return !stop_request;
+        }
+
+        synchronized final void stopPlease() {
+            stop_request = true;
+        }
+
+        synchronized void setConnected(boolean param) {
+            connected = param;
+        }
+
+        @Override
+        public void run() {
+
+            while (!stop_request) {
+                // Konekcija
+                if (!connected && !dev_con.isConnected()) {
+                    if (!dev_con.isConnectingInProgress()) {
+                        new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
+                        dev_con.beginConnection();
+                    }
+                } else if (connected && !device.readerStillConnected()) {
+                    new Thread(new ReaderThread(Consts.TASK_DISCONNECT)).start();
+                }
+
+                try {
+                    Thread.sleep(100);
+                } catch (Exception e) {
+                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, 0, 0, e.getMessage()));
+                }
+            }
+        }
     }
 
     class ReaderThread implements Runnable {
@@ -334,7 +395,7 @@ public class Main extends Activity {
                         dev_con.connected();
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_CONNECTED));
                     } catch (Exception e) {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, 0, 0, e.getMessage()));
+                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR_QUIETLY, 0, 0, e.getMessage()));
                     }
                     break;
 

@@ -206,16 +206,6 @@
             android:weightSum="1">
 
 
-            <Button
-                android:id="@+id/btnOpen"
-                android:layout_width="fill_parent"
-                android:layout_height="60dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/button_pattern"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:text="Open Device" />
-
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
@@ -255,7 +245,7 @@
                 <Button
                     android:id="@+id/btnTagId"
                     android:layout_width="0dp"
-                    android:layout_height="65dp"
+                    android:layout_height="85dp"
                     android:layout_margin="3dp"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
@@ -266,7 +256,7 @@
                 <Button
                     android:id="@+id/btnBlockRead"
                     android:layout_width="0dp"
-                    android:layout_height="65dp"
+                    android:layout_height="85dp"
                     android:layout_margin="3dp"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
@@ -283,7 +273,7 @@
                 <Button
                     android:id="@+id/btnEnterSleep"
                     android:layout_width="0dp"
-                    android:layout_height="65dp"
+                    android:layout_height="85dp"
                     android:layout_margin="3dp"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
@@ -295,7 +285,7 @@
                 <Button
                     android:id="@+id/btnLeaveSleep"
                     android:layout_width="0dp"
-                    android:layout_height="65dp"
+                    android:layout_height="85dp"
                     android:layout_margin="3dp"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
@@ -304,16 +294,6 @@
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical" />
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btnClose"
-                android:layout_width="fill_parent"
-                android:layout_height="60dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/button_pattern"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:text="Close Device" />
 
         </LinearLayout>
 
