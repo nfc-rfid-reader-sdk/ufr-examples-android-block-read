@@ -260,8 +260,8 @@ public class Main extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case Consts.RESPONSE_CONNECTED:
-                    dev_con_status.setConnected(true);
                     Toast.makeText(context, "Device successfully connected.", Toast.LENGTH_SHORT).show();
+                    dev_con_status.setConnected(true);
                     break;
 
                 case Consts.RESPONSE_READER_TYPE:
@@ -281,8 +281,6 @@ public class Main extends Activity {
                     break;
 
                 case Consts.RESPONSE_DISCONNECTED:
-                    dev_con_status.setConnected(false);
-
                     ebBlockAddr.setText("0");
                     ebDeviceType.setText("");
                     ebTagId.setText("");
@@ -292,6 +290,7 @@ public class Main extends Activity {
                     dev_con.makeKeyDefault();
 
                     Toast.makeText(context, "Device successfully disconnected.", Toast.LENGTH_SHORT).show();
+                    dev_con_status.setConnected(false);
                     break;
 
                 case Consts.RESPONSE_ERROR:

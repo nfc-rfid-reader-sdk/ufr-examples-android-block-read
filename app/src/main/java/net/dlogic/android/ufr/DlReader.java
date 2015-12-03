@@ -3,6 +3,14 @@ package net.dlogic.android.ufr;
 /**
  * Created by zborac on 12.5.2015.
  *
+ * 3.12.2015. class DlReader v1.6
+ *            - in ComProtocol.portWrite() from this version we use an nonblocking write()
+ *              overloaded method from the FTDI class and we have implemented retry count
+ *              (Consts.MAX_COMMUNICATION_BREAK_RETRIES times) on communication break. If
+ *              number of communication break retries exceeded, raised DlReaderException have
+ *              Consts.DL_READER_IS_NOT_CONNECTED err_code and usb device is closed. This algorithm
+ *              solve usb otg device disconnect detection problem on the Runbo X5 and probably some
+ *              other Android smart phones with usb otg port.
  * 1.12.2015. class DlReader v1.5
  *            - New method:
  *                  public synchronized boolean readerStillConnected()
@@ -27,6 +35,7 @@ public class DlReader {
     public static D2xxManager ftD2xx = null;
     public static FT_Device ft_device = null;
     public static int open_index = -1;
+    private static int retry_cnt = 0;
 
     private DlReader() {
     }
@@ -117,6 +126,8 @@ public class DlReader {
         public static final int DL_READER_COMMUNICATION_BREAK = 0x50;
         public static final int DL_READER_IS_NOT_CONNECTED = 0x104;
         public static final int DL_READER_GENERAL_EXCEPTION = 1000;
+
+        public static final int MAX_COMMUNICATION_BREAK_RETRIES = 2;
     }
 
     public synchronized void open() throws DlReaderException {
@@ -153,9 +164,6 @@ public class DlReader {
                     if ((ft_device != null) && ft_device.isOpen()) {
 
                         try {
-                            if (!ft_device.setEventNotification(D2xxManager.FT_EVENT_REMOVED)) { //D2xxManager.FT_EVENT_REMOVED
-                                throw new LocalException();
-                            }
                             if (!ft_device.setLatencyTimer(ComParams.LATENCY_TIMER)) {
                                 throw new LocalException();
                             }
@@ -321,11 +329,23 @@ public class DlReader {
 
         public static void portWrite(byte[] buffer, int buffer_size) throws DlReaderException
         {
-            if (ft_device.write(buffer, buffer_size) != buffer_size) {
-                if (ft_device.isOpen())
-                    throw new DlReaderException("UFR COMMUNICATION BREAK", Consts.DL_READER_COMMUNICATION_BREAK);
-                else
+            if (ft_device.write(buffer, buffer_size, false) != buffer_size) {
+                if (ft_device.isOpen()) {
+                    if (++retry_cnt >= Consts.MAX_COMMUNICATION_BREAK_RETRIES) {
+                        retry_cnt = 0;
+                        open_index = -1;
+                        ft_device.close();
+                        throw new DlReaderException("UFR DEVICE IS NOT CONNECTED", Consts.DL_READER_IS_NOT_CONNECTED);
+                    } else {
+                        throw new DlReaderException("UFR COMMUNICATION BREAK", Consts.DL_READER_COMMUNICATION_BREAK);
+                    }
+                } else {
+                    retry_cnt = 0;
                     throw new DlReaderException("UFR DEVICE IS NOT CONNECTED", Consts.DL_READER_IS_NOT_CONNECTED);
+                }
+            }
+            else {
+                retry_cnt = 0;
             }
         }
 
