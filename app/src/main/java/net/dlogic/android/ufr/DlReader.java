@@ -3,6 +3,8 @@ package net.dlogic.android.ufr;
 /**
  * Created by zborac on 12.5.2015.
  *
+ * 4.12.2015. class DlReader v1.7
+ *            - Added method getNumOfDlDevices()
  * 3.12.2015. class DlReader v1.6
  *            - in ComProtocol.portWrite() from this version we use an nonblocking write()
  *              overloaded method from the FTDI class and we have implemented retry count
@@ -128,6 +130,10 @@ public class DlReader {
         public static final int DL_READER_GENERAL_EXCEPTION = 1000;
 
         public static final int MAX_COMMUNICATION_BREAK_RETRIES = 2;
+    }
+
+    public synchronized int getNumOfDlDevices() {
+        return ftD2xx.createDeviceInfoList(parentContext);
     }
 
     public synchronized void open() throws DlReaderException {

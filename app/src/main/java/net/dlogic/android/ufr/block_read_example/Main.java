@@ -27,7 +27,7 @@ public class Main extends Activity {
     static Context context;
     static DeviceConnectionSynchronizer dev_con;
     static DlReader device;
-    static ReaderConnectionStatus dev_con_status;
+    static ReaderConnectionStatus dev_con_status = null;
 //    static Button btnOpen;
 //    static Button btnClose;
     static Button btnReaderType;
@@ -53,6 +53,16 @@ public class Main extends Activity {
     static int[] authModes;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        if ((dev_con_status == null) && (device.getNumOfDlDevices() > 0)) {
+            dev_con_status = new ReaderConnectionStatus();
+            new Thread(dev_con_status).start();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -64,9 +74,6 @@ public class Main extends Activity {
             e.printStackTrace();
         }
         dev_con = DeviceConnectionSynchronizer.getInstance();
-
-        dev_con_status = new ReaderConnectionStatus();
-        new Thread(dev_con_status).start();
 
         // Get arrays from resources:
         res = getResources();
@@ -290,7 +297,10 @@ public class Main extends Activity {
                     dev_con.makeKeyDefault();
 
                     Toast.makeText(context, "Device successfully disconnected.", Toast.LENGTH_SHORT).show();
-                    dev_con_status.setConnected(false);
+                    if (dev_con_status != null) {
+                        dev_con_status.stopPlease();
+                        dev_con_status = null;
+                    }
                     break;
 
                 case Consts.RESPONSE_ERROR:
