@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.dlogic.android.ufr.block_read_example"
-    android:versionCode="6"
-    android:versionName="1.5" >
+    package="net.dlogic.ufr.block_read"
+    android:versionCode="9"
+    android:versionName="1.8" >
+    <uses-sdk android:minSdkVersion="15"/>
 	<uses-feature android:name="android.hardware.usb.host" />
-    <uses-sdk
-        android:minSdkVersion="15"/>
+    <uses-feature android:name="android.hardware.usb.accessory" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -19,16 +19,19 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" android:resource="@xml/device_filter" />
+                        
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" android:resource="@xml/accessory_filter" />
 
-            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
-                android:resource="@xml/device_filter" />
         </activity>
     </application>
 </manifest>
