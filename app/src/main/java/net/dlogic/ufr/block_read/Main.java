@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import net.dlogic.ufr.DlReader;
+import net.dlogic.ufr.lib.DlReader;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
