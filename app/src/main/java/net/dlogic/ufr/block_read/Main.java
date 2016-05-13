@@ -26,7 +26,6 @@ import java.util.regex.Pattern;
 
 public class Main extends Activity {
     static Context context;
-    static DeviceConnectionSynchronizer dev_con;
     static DlReader device;
 //    static Button btnOpen;
 //    static Button btnClose;
@@ -51,32 +50,29 @@ public class Main extends Activity {
     static IncomingHandler handler = new IncomingHandler();
     static Resources res;
     static int[] authModes;
+    private byte block_addr;
+    static final byte[] default_key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
+    static byte[] key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
         // Konekcija
-        if (dev_con.isConnected()) {
-            Toast.makeText(context, "Device already connected.", Toast.LENGTH_SHORT).show();
-        } else {
-            if (!dev_con.isConnectingInProgress()) {
-                new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
-                dev_con.beginConnection();
-            } else {
-                Toast.makeText(context, "Connecting in progress.", Toast.LENGTH_SHORT).show();
-            }
-        }
+//        if (device.readerStillConnected()) {
+//            Toast.makeText(context, "Device already connected.", Toast.LENGTH_SHORT).show();
+//        } else {
+            new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
+//        }
     }
 
     @Override
     protected void onPause() {
-        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show();
-        if (dev_con.isConnected()) {
-//        if (!device.readerStillConnected()) {
+//        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show();
+//        if (device.readerStillConnected()) {
             new Thread(new ReaderThread(Consts.TASK_DISCONNECT)).start();
-        }
+//        }
         super.onPause();
     }
 
@@ -91,9 +87,6 @@ public class Main extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        dev_con = DeviceConnectionSynchronizer.getInstance();
-
-        //device.openAccessory();
 
         // Get arrays from resources:
         res = getResources();
@@ -185,7 +178,7 @@ public class Main extends Activity {
         });*/
         btnReaderType.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (dev_con.isConnected()) {
+                if (device.readerStillConnected()) {
                     try {
                         new Thread(new ReaderThread(Consts.TASK_GET_READER_TYPE)).start();
                     } catch (Exception e) {
@@ -198,7 +191,7 @@ public class Main extends Activity {
         });
         btnTagId.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (dev_con.isConnected()) {
+                if (device.readerStillConnected()) {
                     try {
                         new Thread(new ReaderThread(Consts.TASK_GET_CARD_ID)).start();
                     } catch (Exception e) {
@@ -211,12 +204,12 @@ public class Main extends Activity {
         });
         btnBlockRead.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (dev_con.isConnected()) {
+                if (device.readerStillConnected()) {
                     if (Tools.isNumeric(ebBlockAddr.getText().toString())) {
                         int i = Integer.parseInt(ebBlockAddr.getText().toString());
                         if ((i >= 0) && (i < Consts.MAX_BLOCK_ADDR)) {
-                            dev_con.setBlockAddr((byte) i);
-                            if (dev_con.setKey(ebKey.getText().toString())) {
+                            block_addr = (byte) i;
+                            if (setKey(ebKey.getText().toString())) {
                                 try {
                                     new Thread(new ReaderThread(Consts.TASK_BLOCK_READ)).start();
                                 } catch (Exception e) {
@@ -239,7 +232,7 @@ public class Main extends Activity {
 
         btnUiSignal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (dev_con.isConnected()) {
+                if (device.readerStillConnected()) {
                     new Thread(new ReaderThread(Consts.TASK_EMIT_UI_SIGNAL)).start();
                 } else {
                     Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
@@ -248,7 +241,7 @@ public class Main extends Activity {
         });
         btnEnterSleep.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (dev_con.isConnected()) {
+                if (device.readerStillConnected()) {
                     new Thread(new ReaderThread(Consts.TASK_ENTER_SLEEP)).start();
                 } else {
                     Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
@@ -257,13 +250,36 @@ public class Main extends Activity {
         });
         btnLeaveSleep.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (dev_con.isConnected()) {
+                if (device.readerStillConnected()) {
                     new Thread(new ReaderThread(Consts.TASK_LEAVE_SLEEP)).start();
                 } else {
                     Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private static byte[] getKey() {
+        return key;
+    }
+
+    private static boolean setKey(String keyHexStr) {
+
+        if (keyHexStr.length() != 12) {
+            return false;
+        }
+        if (!keyHexStr.matches("[0-9A-Fa-f]+")) {
+            return false;
+        }
+        for (int i = 0; i < 12; i += 2) {
+            key[i / 2] = (byte) ((Character.digit(keyHexStr.charAt(i), 16) << 4)
+                    + Character.digit(keyHexStr.charAt(i+1), 16));
+        }
+        return true;
+    }
+
+    private static void makeKeyDefault() {
+        java.lang.System.arraycopy(default_key, 0, key, 0, 6);
     }
 
     static class IncomingHandler extends Handler {
@@ -297,22 +313,16 @@ public class Main extends Activity {
                     ebTagUid.setText("");
                     ebBlockData.setText("");
                     ebKey.setText("FFFFFFFFFFFF");
-                    dev_con.makeKeyDefault();
+                    makeKeyDefault();
 
                     Toast.makeText(context, "Device successfully disconnected.", Toast.LENGTH_SHORT).show();
                     break;
 
                 case Consts.RESPONSE_ERROR:
                     Toast.makeText(context, (String)msg.obj, Toast.LENGTH_SHORT).show();
-                    if (dev_con.isConnectingInProgress()) {
-                        dev_con.abortConnection();
-                    }
                     break;
 
                 case Consts.RESPONSE_ERROR_QUIETLY:
-                    if (dev_con.isConnectingInProgress()) {
-                        dev_con.abortConnection();
-                    }
                     break;
 
                 default:
@@ -360,8 +370,11 @@ public class Main extends Activity {
             switch (task) {
                 case Consts.TASK_CONNECT:
                     try {
-                        device.open();
-                        dev_con.connected();
+//                        Thread.sleep(3000);
+                        while (!device.readerStillConnected()) {
+                            device.open();
+                            Thread.sleep(3333);
+                        }
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_CONNECTED));
                     } catch (Exception e) {
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR/* DEBUG _QUIETLY*/, e.getMessage()));
@@ -387,7 +400,7 @@ public class Main extends Activity {
 
                 case Consts.TASK_BLOCK_READ:
                     try {
-                        data = device.blockRead(dev_con.getBlockAddr(), (byte) authenticationMode, dev_con.getKey());
+                        data = device.blockRead(block_addr, (byte) authenticationMode, getKey());
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_BLOCK_READ, data));
                     } catch(Exception e) {
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
@@ -397,7 +410,6 @@ public class Main extends Activity {
                 case Consts.TASK_DISCONNECT:
                     try {
                         device.close();
-                        dev_con.disconnected();
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_DISCONNECTED));
                     } catch (Exception e) {
                         handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
@@ -431,91 +443,6 @@ public class Main extends Activity {
                 default:
                     break;
             }
-        }
-    }
-
-    static class DeviceConnectionSynchronizer {
-        private static DeviceConnectionSynchronizer dcs = null;
-        private byte block_addr;
-        private boolean is_connected = false;
-        private boolean connecting_in_progress = false;
-        private boolean disconnecting_in_progress = false;
-        static final byte[] default_key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
-        static byte[] key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
-
-        static synchronized DeviceConnectionSynchronizer getInstance() {
-            if (dcs == null) {
-                dcs = new DeviceConnectionSynchronizer();
-            }
-            return dcs;
-        }
-
-        synchronized void connected() {
-            connecting_in_progress = false;
-            is_connected = true;
-        }
-
-        synchronized void disconnected() {
-            is_connected = false;
-        }
-
-        synchronized boolean isConnected () {
-            return is_connected;
-        }
-
-        synchronized void setBlockAddr(byte b) {
-            block_addr = b;
-        }
-
-        synchronized byte getBlockAddr() {
-            return block_addr;
-        }
-
-        synchronized void beginConnection() {
-            connecting_in_progress = true;
-        }
-
-        synchronized void beginDisconnection() {
-            disconnecting_in_progress = true;
-        }
-
-        synchronized boolean isConnectingInProgress() {
-            return connecting_in_progress;
-        }
-
-        synchronized boolean isDisconnectingInProgress() {
-            return disconnecting_in_progress;
-        }
-
-        synchronized boolean isTransitionInProgress() {
-            return connecting_in_progress && disconnecting_in_progress;
-        }
-
-        synchronized void abortConnection() {
-            connecting_in_progress = false;
-        }
-
-        synchronized void makeKeyDefault() {
-            java.lang.System.arraycopy(default_key, 0, key, 0, 6);
-        }
-
-        synchronized boolean setKey(String keyHexStr) {
-
-            if (keyHexStr.length() != 12) {
-                return false;
-            }
-            if (!keyHexStr.matches("[0-9A-Fa-f]+")) {
-                return false;
-            }
-            for (int i = 0; i < 12; i += 2) {
-                key[i / 2] = (byte) ((Character.digit(keyHexStr.charAt(i), 16) << 4)
-                        + Character.digit(keyHexStr.charAt(i+1), 16));
-            }
-            return true;
-        }
-
-        synchronized byte[] getKey() {
-            return key;
         }
     }
 
