@@ -287,7 +287,7 @@ public class Main extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case Consts.RESPONSE_CONNECTED:
-                    Toast.makeText(context, "Device successfully connected.", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "Device successfully connected.", Toast.LENGTH_SHORT).show();
                     break;
 
                 case Consts.RESPONSE_READER_TYPE:
@@ -315,7 +315,7 @@ public class Main extends Activity {
                     ebKey.setText("FFFFFFFFFFFF");
                     makeKeyDefault();
 
-                    Toast.makeText(context, "Device successfully disconnected.", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "Device successfully disconnected.", Toast.LENGTH_SHORT).show();
                     break;
 
                 case Consts.RESPONSE_ERROR:
@@ -366,18 +366,20 @@ public class Main extends Activity {
 
         @Override
         public void run() {
-
             switch (task) {
                 case Consts.TASK_CONNECT:
-                    try {
-//                        Thread.sleep(3000);
-                        while (!device.readerStillConnected()) {
+                    while (!device.readerStillConnected()) {
+                        try {
                             device.open();
-                            Thread.sleep(3333);
+                            handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_CONNECTED));
+                        } catch (Exception e) {
+                            handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR_QUIETLY, e.getMessage()));
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException ie) {
+                                ie.printStackTrace();
+                            }
                         }
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_CONNECTED));
-                    } catch (Exception e) {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR/* DEBUG _QUIETLY*/, e.getMessage()));
                     }
                     break;
 
