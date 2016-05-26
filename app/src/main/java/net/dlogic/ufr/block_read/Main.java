@@ -63,7 +63,7 @@ public class Main extends Activity {
 //        if (device.readerStillConnected()) {
 //            Toast.makeText(context, "Device already connected.", Toast.LENGTH_SHORT).show();
 //        } else {
-            new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
+        new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
 //        }
     }
 
