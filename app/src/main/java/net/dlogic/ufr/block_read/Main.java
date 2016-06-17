@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import net.dlogic.ufr.lib.DlReader;
 
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -53,26 +54,18 @@ public class Main extends Activity {
     private byte block_addr;
     static final byte[] default_key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
     static byte[] key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
+    static ConcurrentLinkedQueue<Task> mCommandQueue = new ConcurrentLinkedQueue<Task>();
+    ReaderThread mReaderThread;
 
     @Override
     protected void onResume() {
         super.onResume();
-
-//        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
-        // Konekcija
-//        if (device.readerStillConnected()) {
-//            Toast.makeText(context, "Device already connected.", Toast.LENGTH_SHORT).show();
-//        } else {
-        new Thread(new ReaderThread(Consts.TASK_CONNECT)).start();
-//        }
+        mCommandQueue.add(new Task(Consts.TASK_CONNECT));
     }
 
     @Override
     protected void onPause() {
-//        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show();
-//        if (device.readerStillConnected()) {
-            new Thread(new ReaderThread(Consts.TASK_DISCONNECT)).start();
-//        }
+        mCommandQueue.add(new Task(Consts.TASK_DISCONNECT));
         super.onPause();
     }
 
@@ -87,6 +80,9 @@ public class Main extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        mReaderThread = new ReaderThread();
+        mReaderThread.start();
 
         // Get arrays from resources:
         res = getResources();
@@ -180,7 +176,7 @@ public class Main extends Activity {
             public void onClick(View v) {
                 if (device.readerStillConnected()) {
                     try {
-                        new Thread(new ReaderThread(Consts.TASK_GET_READER_TYPE)).start();
+                        mCommandQueue.add(new Task(Consts.TASK_GET_READER_TYPE));
                     } catch (Exception e) {
                         Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
                     }
@@ -193,7 +189,7 @@ public class Main extends Activity {
             public void onClick(View v) {
                 if (device.readerStillConnected()) {
                     try {
-                        new Thread(new ReaderThread(Consts.TASK_GET_CARD_ID)).start();
+                        mCommandQueue.add(new Task(Consts.TASK_GET_CARD_ID));
                     } catch (Exception e) {
                         Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
                     }
@@ -211,7 +207,7 @@ public class Main extends Activity {
                             block_addr = (byte) i;
                             if (setKey(ebKey.getText().toString())) {
                                 try {
-                                    new Thread(new ReaderThread(Consts.TASK_BLOCK_READ)).start();
+                                    mCommandQueue.add(new Task(Consts.TASK_BLOCK_READ, block_addr, (byte)authenticationMode, getKey()));
                                 } catch (Exception e) {
                                     Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
                                 }
@@ -233,7 +229,7 @@ public class Main extends Activity {
         btnUiSignal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (device.readerStillConnected()) {
-                    new Thread(new ReaderThread(Consts.TASK_EMIT_UI_SIGNAL)).start();
+                    mCommandQueue.add(new Task(Consts.TASK_EMIT_UI_SIGNAL, (byte)lightMode, (byte)beepMode));
                 } else {
                     Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
                 }
@@ -242,7 +238,7 @@ public class Main extends Activity {
         btnEnterSleep.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (device.readerStillConnected()) {
-                    new Thread(new ReaderThread(Consts.TASK_ENTER_SLEEP)).start();
+                    mCommandQueue.add(new Task(Consts.TASK_ENTER_SLEEP));
                 } else {
                     Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
                 }
@@ -251,7 +247,7 @@ public class Main extends Activity {
         btnLeaveSleep.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (device.readerStillConnected()) {
-                    new Thread(new ReaderThread(Consts.TASK_LEAVE_SLEEP)).start();
+                    mCommandQueue.add(new Task(Consts.TASK_LEAVE_SLEEP));
                 } else {
                     Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
                 }
@@ -259,6 +255,18 @@ public class Main extends Activity {
         });
     }
 
+/*    @Override
+    protected void onStop() {
+        mReaderThread.stopRequest();
+        try {
+            mReaderThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mReaderThread = null;
+        super.onStop();
+    }
+*/
     private static byte[] getKey() {
         return key;
     }
@@ -355,96 +363,141 @@ public class Main extends Activity {
         public static final byte DEFAULT_AUTH_MODE = DlReader.Consts.MIFARE_AUTHENT1A;
     }
 
-    class ReaderThread implements Runnable {
-        private int task;
+    class ReaderThread extends Thread {
         private byte[]data;
+        private boolean stop_thread = false;
+        private boolean connected = false;
         DlReader.CardParams c_params = new DlReader.CardParams();
 
-        public ReaderThread(int ptask)  {
-            task = ptask;
+        public synchronized void stopRequest() {
+
+            stop_thread = true;
         }
 
         @Override
         public void run() {
-            switch (task) {
-                case Consts.TASK_CONNECT:
-                    while (!device.readerStillConnected()) {
-                        try {
-                            device.open();
-                            handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_CONNECTED));
-                        } catch (Exception e) {
-                            handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR_QUIETLY, e.getMessage()));
+            Task local_task;
+
+            while (!stop_thread) {
+                local_task = mCommandQueue.poll();
+                if (local_task != null) {
+
+                    switch (local_task.taskCode) {
+                        case Consts.TASK_CONNECT:
+                            //while (!device.readerStillConnected()) {
+                                try {
+                                    device.open();
+                                    connected = true;
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_CONNECTED));
+                                } catch (Exception e) {
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR_QUIETLY, e.getMessage()));
+                                /*    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException ie) {
+                                        ie.printStackTrace();
+                                    }*/
+                                }
+                            //}
+                            break;
+
+                        case Consts.TASK_DISCONNECT:
                             try {
-                                Thread.sleep(1000);
-                            } catch (InterruptedException ie) {
-                                ie.printStackTrace();
+                                device.close();
+                                connected = false;
+                                handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_DISCONNECTED));
+                            } catch (Exception e) {
+                                handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
                             }
-                        }
-                    }
-                    break;
+                            break;
 
-                case Consts.TASK_GET_READER_TYPE:
-                    try {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_READER_TYPE, device.getReaderType(), 0));
-                    } catch(Exception e) {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
-                    }
-                    break;
+                        case Consts.TASK_GET_READER_TYPE:
+                            if (connected) {
+                                try {
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_READER_TYPE, device.getReaderType(), 0));
+                                } catch (Exception e) {
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
+                                }
+                            }
+                            break;
 
-                case Consts.TASK_GET_CARD_ID:
-                    try {
-                        data = device.getCardIdEx(c_params);
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_CARD_ID, c_params.getSak(), c_params.getUidSize(), data));
-                    } catch(Exception e) {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
-                    }
-                    break;
+                        case Consts.TASK_GET_CARD_ID:
+                            if (connected) {
+                                try {
+                                    data = device.getCardIdEx(c_params);
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_CARD_ID, c_params.getSak(), c_params.getUidSize(), data));
+                                } catch (Exception e) {
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
+                                }
+                            }
+                            break;
 
-                case Consts.TASK_BLOCK_READ:
-                    try {
-                        data = device.blockRead(block_addr, (byte) authenticationMode, getKey());
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_BLOCK_READ, data));
-                    } catch(Exception e) {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
-                    }
-                    break;
+                        case Consts.TASK_BLOCK_READ:
+                            if (connected) {
+                                try {
+                                    data = device.blockRead(local_task.byte_param1/*block_addr*/, local_task.byte_param2/*authenticationMode*/, local_task.byte_arr_param1/*getKey()*/);
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_BLOCK_READ, data));
+                                } catch (Exception e) {
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
+                                }
+                            }
+                            break;
 
-                case Consts.TASK_DISCONNECT:
-                    try {
-                        device.close();
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_DISCONNECTED));
-                    } catch (Exception e) {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
-                    }
-                    break;
+                        case Consts.TASK_EMIT_UI_SIGNAL:
+                            if (connected) {
+                                try {
+                                    device.readerUiSignal(local_task.byte_param1/*lightMode*/, local_task.byte_param2/*beepMode*/);
+                                } catch (Exception e) {
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
+                                }
+                            }
+                            break;
 
-                case Consts.TASK_EMIT_UI_SIGNAL:
-                    try {
-                        device.readerUiSignal((byte) lightMode, (byte) beepMode);
-                    } catch (Exception e) {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
-                    }
-                    break;
+                        case Consts.TASK_ENTER_SLEEP:
+                            if (connected) {
+                                try {
+                                    device.enterSleepMode();
+                                } catch (Exception e) {
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
+                                }
+                            }
+                            break;
 
-                case Consts.TASK_ENTER_SLEEP:
-                    try {
-                        device.enterSleepMode();
-                    } catch (Exception e) {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
-                    }
-                    break;
+                        case Consts.TASK_LEAVE_SLEEP:
+                            if (connected) {
+                                try {
+                                    device.leaveSleepMode();
+                                } catch (Exception e) {
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
+                                }
+                            }
+                            break;
 
-                case Consts.TASK_LEAVE_SLEEP:
-                    try {
-                        device.leaveSleepMode();
-                    } catch (Exception e) {
-                        handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
+                        default:
+                            break;
                     }
-                    break;
-
-                default:
-                    break;
+                }
             }
+        }
+    }
+
+    class Task {
+        int taskCode;
+        byte byte_param1, byte_param2;
+        byte[] byte_arr_param1;
+
+        public Task(int code) {
+            taskCode = code;
+        }
+        public Task(int code, byte p1, byte p2) {
+            taskCode = code;
+            byte_param1 = p1;
+            byte_param2 = p2;
+        }
+        public Task(int code, byte p1, byte p2, byte[] pa1) {
+            taskCode = code;
+            byte_param1 = p1;
+            byte_param2 = p2;
+            byte_arr_param1 = pa1;
         }
     }
 
