@@ -198,13 +198,6 @@
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-
                 <Button
                     android:id="@+id/btnTagId"
                     android:layout_width="0dp"
@@ -215,6 +208,13 @@
                     android:scaleType="centerInside"
                     android:layout_weight="1" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
                 <Button
                     android:id="@+id/btnBlockRead"
                     android:layout_width="0dp"
@@ -224,12 +224,6 @@
                     android:gravity="center"
                     android:scaleType="centerInside"
                     android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
 
                 <Button
                     android:id="@+id/btnEnterSleep"
