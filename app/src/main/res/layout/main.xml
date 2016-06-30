@@ -124,7 +124,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:paddingBottom="3dp">
+            android:paddingBottom="3dp"
+            android:baselineAligned="false">
 
 
             <LinearLayout
@@ -240,7 +241,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="3dp"
-            android:paddingBottom="3dp">
+            android:paddingBottom="3dp"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:orientation="vertical"
