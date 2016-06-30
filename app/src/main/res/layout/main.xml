@@ -26,6 +26,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="10dp"
         android:weightSum="1">
 
         <LinearLayout
@@ -109,8 +111,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
+        android:paddingBottom="15dp"
         android:tag="configure block"
         android:orientation="vertical"
         android:weightSum="1">
@@ -120,8 +121,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp">
+            android:paddingBottom="3dp">
 
 
             <LinearLayout
@@ -230,8 +230,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp">
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -338,7 +338,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:background="@drawable/grey_background">
 
         <FrameLayout
@@ -352,11 +352,12 @@
                 android:autoText="true"
                 android:background="@drawable/text_view_lg"
                 android:editable="false"
-                android:ems="10"
                 android:inputType="none"
                 android:singleLine="true"
                 android:typeface="monospace"
-                android:enabled="true" />
+                android:enabled="true"
+                android:focusable="true"
+                android:ems="10" />
 
             <TextView
                 android:id="@+id/editText5"
