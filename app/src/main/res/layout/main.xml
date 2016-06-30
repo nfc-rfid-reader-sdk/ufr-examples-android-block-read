@@ -317,15 +317,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:layout_weight="0.06"
-            android:background="#505050"
-            android:tag="Read block"
-            android:orientation="vertical"
-            android:weightSum="1">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/editText5"
@@ -355,17 +349,11 @@
             android:typeface="monospace"
             android:enabled="true" />
 
-        </LinearLayout>
+        </FrameLayout>
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:layout_weight="0.06"
-            android:background="#505050"
-            android:tag="Read block"
-            android:orientation="vertical"
-            android:weightSum="1">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
             <TextView
@@ -395,19 +383,11 @@
                 android:singleLine="true"
                 android:typeface="monospace" />
 
-        </LinearLayout>
+        </FrameLayout>
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_weight="0.06"
-            android:background="#505050"
-            android:tag="Read block"
-            android:orientation="vertical"
-            android:weightSum="1">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/textView"
@@ -436,7 +416,8 @@
                 android:typeface="monospace"
                 android:enabled="true" />
 
-        </LinearLayout>
+        </FrameLayout>
+
     </LinearLayout>
 
     <!-- Read byte -->
