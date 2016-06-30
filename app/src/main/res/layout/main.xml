@@ -17,7 +17,7 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textSize="22sp"
-            android:id="@+id/textView6"
+            android:id="@+id/txtAppName"
             android:background="@drawable/header_logo"
             android:gravity="bottom|center"
             android:paddingBottom="18dp" />
@@ -135,7 +135,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/editText"
+                    android:id="@+id/labelBlockAddr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -174,7 +174,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/editText4"
+                    android:id="@+id/labelDeviceType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -209,7 +209,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/labelLightMode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -251,7 +251,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/labelBeepMode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -282,7 +282,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/labelAuthenticationMode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -313,7 +313,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/labelKey"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -381,7 +381,7 @@
                 android:ems="10" />
 
             <TextView
-                android:id="@+id/editText5"
+                android:id="@+id/labelTagId"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:inputType="none"
@@ -411,7 +411,7 @@
                 android:typeface="monospace" />
 
             <TextView
-                android:id="@+id/BlockRead"
+                android:id="@+id/labeCardUid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Card uid:"
@@ -440,7 +440,7 @@
                 android:enabled="true" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/labelBlockData"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Block data:"
