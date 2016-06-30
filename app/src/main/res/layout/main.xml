@@ -26,7 +26,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="15dp"
+        android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:weightSum="1">
 
@@ -41,7 +41,7 @@
                 android:id="@+id/btnDeviceType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/icon_read_device_type"
                 android:gravity="center"
                 android:scaleType="centerInside"
@@ -51,7 +51,7 @@
                 android:id="@+id/btnUiSignal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/icon_emit_ui_signal"
                 android:gravity="center"
                 android:scaleType="centerInside"
@@ -61,7 +61,7 @@
                 android:id="@+id/btnTagId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/icon_get_card_id"
                 android:gravity="center"
                 android:scaleType="centerInside" />
@@ -79,7 +79,7 @@
                 android:id="@+id/btnBlockRead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/icon_read_block"
                 android:gravity="center"
                 android:scaleType="centerInside" />
@@ -88,7 +88,7 @@
                 android:id="@+id/btnEnterSleep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/icon_enter_sleep"
                 android:gravity="center"
                 android:scaleType="centerInside"
@@ -98,7 +98,7 @@
                 android:id="@+id/btnLeaveSleep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/icon_leave_sleep"
                 android:gravity="center"
                 android:scaleType="centerInside"
@@ -343,7 +343,8 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <EditText
                 android:id="@+id/ebTagId"
@@ -374,7 +375,8 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <EditText
                 android:id="@+id/ebTagUid"
@@ -401,7 +403,8 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <EditText
                 android:id="@+id/ebBlockData"
