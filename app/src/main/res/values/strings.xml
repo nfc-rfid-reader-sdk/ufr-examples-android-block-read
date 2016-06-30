@@ -28,4 +28,14 @@
 		<item>96</item>
 		<item>97</item>
 	</integer-array>
+
+	<string name="txt_block_addr">Block Addr:</string>
+    <string name="txt_device_type">Device type:</string>
+    <string name="txt_light_signal_mode">Light signal mode:</string>
+    <string name="txt_beep_signal_mode">Beep signal mode:</string>
+    <string name="txt_auth_mode">Auth. mode:</string>
+    <string name="txt_key">Key:</string>
+    <string name="txt_card_id_sak">CARD ID (SAK):</string>
+    <string name="txt_card_uid">CARD UID:</string>
+    <string name="txt_block_data">BLOCK DATA:</string>
 </resources>
