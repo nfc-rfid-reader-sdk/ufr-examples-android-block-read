@@ -233,7 +233,7 @@
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:id="@+id/spinner"
+                    android:id="@+id/spnBeepMode"
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
@@ -261,7 +261,7 @@
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spnAuthenticationMode"
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
@@ -287,7 +287,7 @@
                     android:gravity="center" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/ebKey"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="true"
