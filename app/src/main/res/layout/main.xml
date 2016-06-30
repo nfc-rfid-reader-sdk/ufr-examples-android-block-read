@@ -209,10 +209,9 @@
                     android:layout_width="0dp"
                     android:layout_height="85dp"
                     android:layout_margin="3dp"
-                    android:background="@drawable/button_pattern"
+                    android:background="@drawable/icon_read_device_type"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Read Device Type"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical" />
 
@@ -221,10 +220,9 @@
                     android:layout_width="0dp"
                     android:layout_height="85dp"
                     android:layout_margin="3dp"
-                    android:background="@drawable/button_pattern"
+                    android:background="@drawable/icon_emit_ui_signal"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Emit UI Signal"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical" />
 
@@ -240,10 +238,9 @@
                     android:layout_width="0dp"
                     android:layout_height="85dp"
                     android:layout_margin="3dp"
-                    android:background="@drawable/button_pattern"
+                    android:background="@drawable/icon_get_card_id"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Get Card Id"
                     android:layout_weight="1" />
 
                 <Button
@@ -251,10 +248,9 @@
                     android:layout_width="0dp"
                     android:layout_height="85dp"
                     android:layout_margin="3dp"
-                    android:background="@drawable/button_pattern"
+                    android:background="@drawable/icon_read_block"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Read Block"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -268,10 +264,9 @@
                     android:layout_width="0dp"
                     android:layout_height="85dp"
                     android:layout_margin="3dp"
-                    android:background="@drawable/button_pattern"
+                    android:background="@drawable/icon_enter_sleep"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Enter Sleep"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical" />
 
@@ -280,10 +275,9 @@
                     android:layout_width="0dp"
                     android:layout_height="85dp"
                     android:layout_margin="3dp"
-                    android:background="@drawable/button_pattern"
+                    android:background="@drawable/icon_leave_sleep"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Leave Sleep"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical" />
             </LinearLayout>
