@@ -154,9 +154,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:text="0"
+                    android:textColor="@android:color/darker_gray"
                     android:enabled="true"
-                    android:focusable="true"
                     android:singleLine="true"
+                    android:focusable="true"
                     android:maxLength="2"
                     android:typeface="monospace"
                     android:nextFocusDown="@+id/ebKey"
@@ -190,6 +191,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:singleLine="true"
+                    android:textColor="@android:color/darker_gray"
                     android:typeface="monospace"
                     android:focusable="false"
                     android:enabled="true"
@@ -221,6 +223,7 @@
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
+                    android:textColor="@android:color/darker_gray"
                     android:layout_marginRight="5dp"
                     android:gravity="center" />
             </LinearLayout>
@@ -260,6 +263,7 @@
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
+                    android:textColor="@android:color/darker_gray"
                     android:layout_marginRight="5dp"
                     android:gravity="center" />
             </LinearLayout>
@@ -289,6 +293,7 @@
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
+                    android:textColor="@android:color/darker_gray"
                     android:layout_marginRight="5dp"
                     android:gravity="center" />
             </LinearLayout>
@@ -323,6 +328,7 @@
                     android:layout_marginRight="5dp"
                     android:inputType="text"
                     android:text="FFFFFFFFFFFF"
+                    android:textColor="@android:color/darker_gray"
                     android:enabled="true"
                     android:focusable="true"
                     android:singleLine="true"
@@ -358,6 +364,7 @@
                 android:background="@drawable/text_view_lg"
                 android:editable="false"
                 android:inputType="none"
+                android:textColor="@android:color/darker_gray"
                 android:singleLine="true"
                 android:typeface="monospace"
                 android:enabled="true"
@@ -390,6 +397,7 @@
                 android:focusableInTouchMode="false"
                 android:gravity="left|center_vertical"
                 android:enabled="true"
+                android:textColor="@android:color/darker_gray"
                 android:singleLine="true"
                 android:typeface="monospace" />
 
@@ -418,6 +426,7 @@
                 android:focusableInTouchMode="false"
                 android:gravity="left|center_vertical"
                 android:singleLine="true"
+                android:textColor="@android:color/darker_gray"
                 android:typeface="monospace"
                 android:enabled="true" />
 
