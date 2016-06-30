@@ -140,7 +140,8 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#8fc546" />
 
                 <EditText
                     android:id="@+id/ebBlockAddr"
@@ -175,7 +176,8 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#8fc546" />
 
                 <EditText
                     android:id="@+id/ebDeviceType"
@@ -207,7 +209,8 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#8fc546" />
 
                 <Spinner
                     android:layout_width="match_parent"
@@ -245,7 +248,8 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#8fc546" />
 
                 <Spinner
                     android:layout_width="match_parent"
@@ -273,7 +277,8 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#8fc546" />
 
                 <Spinner
                     android:layout_width="match_parent"
@@ -301,7 +306,8 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#8fc546" />
 
                 <EditText
                     android:id="@+id/ebKey"
@@ -359,7 +365,8 @@
                 android:text="Card Id (SAK)"
                 android:textStyle="bold"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="25dp" />
+                android:layout_marginLeft="25dp"
+                android:textColor="#8fc546" />
 
         </FrameLayout>
 
@@ -385,7 +392,8 @@
                 android:text="Card uid:"
                 android:textStyle="bold"
                 android:layout_marginLeft="25dp"
-                android:gravity="left|center_vertical" />
+                android:gravity="left|center_vertical"
+                android:textColor="#8fc546" />
 
         </FrameLayout>
 
@@ -411,7 +419,8 @@
                 android:text="Block data:"
                 android:textStyle="bold"
                 android:gravity="left|center_vertical"
-                android:layout_marginLeft="25dp" />
+                android:layout_marginLeft="25dp"
+                android:textColor="#8fc546" />
 
 
         </FrameLayout>
