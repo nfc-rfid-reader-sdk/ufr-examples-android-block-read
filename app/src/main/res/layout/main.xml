@@ -163,34 +163,6 @@
                 android:typeface="monospace"
                 android:imeOptions="actionDone"/>
 
-            <TextView
-                android:id="@+id/editText5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none"
-                android:text="Card Id (SAK)"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="2dp" />
-
-            <EditText
-                android:id="@+id/ebTagId"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
-                android:autoText="true"
-                android:background="@drawable/text_view_lg"
-                android:editable="false"
-                android:ems="10"
-                android:inputType="none"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="0dp"
-                android:singleLine="true"
-                android:typeface="monospace"
-                android:enabled="true" />
-
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -283,6 +255,46 @@
             </LinearLayout>
 
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_weight="0.06"
+        android:background="#505050"
+        android:tag="Read block"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+    <TextView
+        android:id="@+id/editText5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        android:text="Card Id (SAK)"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp" />
+
+    <EditText
+        android:id="@+id/ebTagId"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:autoText="true"
+        android:background="@drawable/text_view_lg"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="none"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="0dp"
+        android:singleLine="true"
+        android:typeface="monospace"
+        android:enabled="true" />
 
     </LinearLayout>
 
