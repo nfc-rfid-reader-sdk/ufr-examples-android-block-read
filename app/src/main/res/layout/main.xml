@@ -91,8 +91,8 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="20dp"
         android:background="#505050"
         android:tag="configure block"
         android:orientation="vertical"
@@ -102,7 +102,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp">
 
 
             <LinearLayout
@@ -119,10 +121,9 @@
                     android:inputType="none"
                     android:text="Block Addr:"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="2dp" />
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center" />
 
                 <EditText
                     android:id="@+id/ebBlockAddr"
@@ -130,15 +131,16 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_view_sm"
                     android:inputType="number"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:text="0"
                     android:enabled="true"
                     android:focusable="true"
                     android:singleLine="true"
                     android:maxLength="2"
                     android:typeface="monospace"
-                    android:nextFocusDown="@+id/ebKey" />
+                    android:nextFocusDown="@+id/ebKey"
+                    android:gravity="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -154,10 +156,9 @@
                     android:inputType="none"
                     android:text="Device type:"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="2dp" />
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center" />
 
                 <EditText
                     android:id="@+id/ebDeviceType"
@@ -165,12 +166,13 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_view_sm"
                     android:inputType="none"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:singleLine="true"
                     android:typeface="monospace"
                     android:focusable="false"
-                    android:enabled="true" />
+                    android:enabled="true"
+                    android:gravity="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -186,19 +188,19 @@
                     android:inputType="none"
                     android:text="Light signal"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="2dp" />
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center" />
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
                     android:id="@+id/spnLightMode"
                     android:background="@drawable/text_view_sm"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:inputType="none"
-                    android:layout_marginRight="10dp" />
+                    android:layout_marginRight="5dp"
+                    android:gravity="center" />
             </LinearLayout>
 
         </LinearLayout>
@@ -207,7 +209,9 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -224,15 +228,17 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
-                    android:layout_marginLeft="10dp" />
+                    android:gravity="center" />
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
                     android:id="@+id/spinner"
                     android:background="@drawable/text_view_sm"
-                    android:layout_marginLeft="10dp"
-                    android:inputType="none" />
+                    android:layout_marginLeft="5dp"
+                    android:inputType="none"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -243,22 +249,24 @@
 
                 <TextView
                     android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
                     android:text="Authentication"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
-                    android:layout_marginLeft="10dp" />
+                    android:gravity="center" />
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
                     android:id="@+id/spinner2"
                     android:background="@drawable/text_view_sm"
-                    android:layout_marginLeft="10dp"
-                    android:inputType="none" />
+                    android:layout_marginLeft="5dp"
+                    android:inputType="none"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -274,10 +282,9 @@
                     android:inputType="none"
                     android:text="Key:"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="2dp" />
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center" />
 
                 <EditText
                     android:id="@+id/editText2"
@@ -287,8 +294,8 @@
                     android:background="@drawable/text_view_sm"
                     android:editable="true"
                     android:ems="10"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:inputType="text"
                     android:text="FFFFFFFFFFFF"
                     android:enabled="true"
@@ -296,7 +303,8 @@
                     android:singleLine="true"
                     android:maxLength="12"
                     android:typeface="monospace"
-                    android:imeOptions="actionDone" />
+                    android:imeOptions="actionDone"
+                    android:gravity="center" />
             </LinearLayout>
 
         </LinearLayout>
