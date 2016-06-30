@@ -13,77 +13,75 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/btnDeviceType"
-                android:layout_width="0dp"
-                android:layout_height="85dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:background="@drawable/icon_read_device_type"
                 android:gravity="center"
                 android:scaleType="centerInside"
-                android:layout_weight="1"
                 android:layout_gravity="center_vertical" />
 
             <Button
                 android:id="@+id/btnUiSignal"
-                android:layout_width="0dp"
-                android:layout_height="85dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:background="@drawable/icon_emit_ui_signal"
                 android:gravity="center"
                 android:scaleType="centerInside"
-                android:layout_weight="1"
                 android:layout_gravity="center_vertical" />
 
             <Button
                 android:id="@+id/btnTagId"
-                android:layout_width="0dp"
-                android:layout_height="85dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:background="@drawable/icon_get_card_id"
                 android:gravity="center"
-                android:scaleType="centerInside"
-                android:layout_weight="1" />
+                android:scaleType="centerInside" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/btnBlockRead"
-                android:layout_width="0dp"
-                android:layout_height="85dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:background="@drawable/icon_read_block"
                 android:gravity="center"
-                android:scaleType="centerInside"
-                android:layout_weight="1" />
+                android:scaleType="centerInside" />
 
             <Button
                 android:id="@+id/btnEnterSleep"
-                android:layout_width="0dp"
-                android:layout_height="85dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:background="@drawable/icon_enter_sleep"
                 android:gravity="center"
                 android:scaleType="centerInside"
-                android:layout_weight="1"
                 android:layout_gravity="center_vertical" />
 
             <Button
                 android:id="@+id/btnLeaveSleep"
-                android:layout_width="0dp"
-                android:layout_height="85dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:background="@drawable/icon_leave_sleep"
                 android:gravity="center"
                 android:scaleType="centerInside"
-                android:layout_weight="1"
                 android:layout_gravity="center_vertical" />
         </LinearLayout>
 
