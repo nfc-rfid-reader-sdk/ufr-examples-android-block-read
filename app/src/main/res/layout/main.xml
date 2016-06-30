@@ -6,13 +6,15 @@
     android:orientation="vertical"
     android:background="@android:color/white">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:weightSum="1">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/app_name"
             android:textColor="#FFFFFF"
@@ -21,8 +23,9 @@
             android:id="@+id/txtAppName"
             android:background="@drawable/header_logo"
             android:gravity="bottom|center"
-            android:paddingBottom="18dp" />
-    </RelativeLayout>
+            android:paddingBottom="18dp"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -36,7 +39,6 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center">
 
             <Button
