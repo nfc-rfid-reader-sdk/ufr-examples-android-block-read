@@ -8,8 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="1">
+        android:layout_height="113dp">
 
         <TextView
             android:layout_width="0dp"
@@ -33,21 +32,18 @@
         android:orientation="vertical"
         android:gravity="center"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:weightSum="1">
+        android:paddingBottom="10dp">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:weightSum="3">
+            android:gravity="center">
 
             <Button
                 android:id="@+id/btnDeviceType"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_read_device_type"
                 android:gravity="center"
@@ -56,9 +52,8 @@
 
             <Button
                 android:id="@+id/btnUiSignal"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_emit_ui_signal"
                 android:gravity="center"
@@ -67,9 +62,8 @@
 
             <Button
                 android:id="@+id/btnTagId"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_get_card_id"
                 android:gravity="center"
@@ -81,14 +75,12 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:weightSum="3">
+            android:gravity="center">
 
             <Button
                 android:id="@+id/btnBlockRead"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_read_block"
                 android:gravity="center"
@@ -96,9 +88,8 @@
 
             <Button
                 android:id="@+id/btnEnterSleep"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_enter_sleep"
                 android:gravity="center"
@@ -107,9 +98,8 @@
 
             <Button
                 android:id="@+id/btnLeaveSleep"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_leave_sleep"
                 android:gravity="center"
@@ -153,6 +143,7 @@
                     android:inputType="none"
                     android:text="@string/txt_block_addr"
                     android:textStyle="bold"
+                    android:textSize="12sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
                     android:gravity="center"
@@ -191,6 +182,7 @@
                     android:inputType="none"
                     android:text="@string/txt_device_type"
                     android:textStyle="bold"
+                    android:textSize="12sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
                     android:gravity="center"
@@ -226,6 +218,7 @@
                     android:inputType="none"
                     android:text="@string/txt_light_signal_mode"
                     android:textStyle="bold"
+                    android:textSize="12sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
                     android:gravity="center"
@@ -268,6 +261,7 @@
                     android:inputType="none"
                     android:text="@string/txt_beep_signal_mode"
                     android:textStyle="bold"
+                    android:textSize="12sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
                     android:gravity="center"
@@ -299,6 +293,7 @@
                     android:inputType="none"
                     android:text="@string/txt_auth_mode"
                     android:textStyle="bold"
+                    android:textSize="12sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
                     android:gravity="center"
@@ -330,6 +325,7 @@
                     android:inputType="none"
                     android:text="@string/txt_key"
                     android:textStyle="bold"
+                    android:textSize="12sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="2dp"
                     android:gravity="center"
