@@ -31,20 +31,23 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:weightSum="1">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:gravity="center"
+            android:weightSum="3">
 
             <Button
                 android:id="@+id/btnDeviceType"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_read_device_type"
                 android:gravity="center"
@@ -53,8 +56,9 @@
 
             <Button
                 android:id="@+id/btnUiSignal"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_emit_ui_signal"
                 android:gravity="center"
@@ -63,8 +67,9 @@
 
             <Button
                 android:id="@+id/btnTagId"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_get_card_id"
                 android:gravity="center"
@@ -74,15 +79,16 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:weightSum="3">
 
             <Button
                 android:id="@+id/btnBlockRead"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_read_block"
                 android:gravity="center"
@@ -90,8 +96,9 @@
 
             <Button
                 android:id="@+id/btnEnterSleep"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_enter_sleep"
                 android:gravity="center"
@@ -100,8 +107,9 @@
 
             <Button
                 android:id="@+id/btnLeaveSleep"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@drawable/icon_leave_sleep"
                 android:gravity="center"
