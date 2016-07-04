@@ -20,7 +20,7 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:id="@+id/txtAppName"
+            android:id="@+id/siteLogo"
             android:background="@drawable/header_logo"
             android:gravity="bottom|center"
             android:paddingBottom="12dp"/>
@@ -177,7 +177,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="5dp"
-        android:layout_weight="30">
+        android:layout_weight="25">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -418,7 +418,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:gravity="center"
-        android:layout_weight="55">
+        android:layout_weight="60">
 
         <FrameLayout
             android:layout_width="wrap_content"
