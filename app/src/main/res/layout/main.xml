@@ -47,7 +47,7 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp">
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/btnDeviceType"
@@ -57,7 +57,7 @@
                     android:text="READ\nDEVICE\nTYPE"
                     android:textSize="12sp"
                     android:textColor="@drawable/button_text_color"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerInside"
                     android:layout_gravity="center_vertical" />
             </LinearLayout>
 
@@ -65,7 +65,7 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp">
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/btnUiSignal"
@@ -84,7 +84,7 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp">
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/btnTagId"
@@ -113,7 +113,7 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp">
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/btnBlockRead"
@@ -131,7 +131,7 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp">
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/btnEnterSleep"
@@ -150,7 +150,7 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp">
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/btnLeaveSleep"
