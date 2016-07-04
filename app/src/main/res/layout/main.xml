@@ -4,25 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:layout_weight="5">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="113dp">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/app_name"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:id="@+id/txtAppName"
             android:background="@drawable/header_logo"
             android:gravity="bottom|center"
-            android:paddingBottom="18dp"/>
+            android:paddingBottom="12dp"/>
 
     </LinearLayout>
 
@@ -37,6 +38,7 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minHeight="98dp"
             android:gravity="center"
             android:layout_weight="1"
             android:paddingLeft="5dp"
@@ -45,7 +47,8 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="2dp">
 
                 <Button
                     android:id="@+id/btnDeviceType"
@@ -53,17 +56,17 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_pattern"
                     android:text="READ\nDEVICE\nTYPE"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@drawable/button_text_color"
-                    android:gravity="center"
-                    android:scaleType="centerInside"
+                    android:scaleType="fitXY"
                     android:layout_gravity="center_vertical" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="2dp">
 
                 <Button
                     android:id="@+id/btnUiSignal"
@@ -71,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_pattern"
                     android:text="EMIT UI\nSIGNAL"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@drawable/button_text_color"
                     android:gravity="center"
                     android:scaleType="centerInside"
@@ -81,7 +84,8 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="2dp">
 
                 <Button
                     android:id="@+id/btnTagId"
@@ -89,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_pattern"
                     android:text="GET\nCARD ID"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@drawable/button_text_color"
                     android:gravity="center"
                     android:scaleType="centerInside" />
@@ -101,6 +105,7 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minHeight="95dp"
             android:gravity="center"
             android:layout_weight="1"
             android:paddingRight="5dp"
@@ -109,7 +114,8 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="2dp">
 
                 <Button
                     android:id="@+id/btnBlockRead"
@@ -117,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_pattern"
                     android:text="READ\nBLOCK"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@drawable/button_text_color"
                     android:gravity="center"
                     android:scaleType="centerInside" />
@@ -126,7 +132,8 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="2dp">
 
                 <Button
                     android:id="@+id/btnEnterSleep"
@@ -134,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_pattern"
                     android:text="ENTER\nSLEEP"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@drawable/button_text_color"
                     android:gravity="center"
                     android:scaleType="centerInside"
@@ -144,7 +151,8 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="2dp">
 
                 <Button
                     android:id="@+id/btnLeaveSleep"
@@ -152,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_pattern"
                     android:text="LEAVE\nSLEEP"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@drawable/button_text_color"
                     android:gravity="center"
                     android:scaleType="centerInside"
@@ -169,10 +177,8 @@
         android:layout_height="wrap_content"
         android:tag="configure block"
         android:orientation="vertical"
-        android:weightSum="4"
         android:gravity="center"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp">
+        android:padding="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -180,8 +186,7 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:paddingBottom="3dp"
-            android:baselineAligned="false"
-            android:layout_weight="1">
+            android:baselineAligned="false">
 
 
             <LinearLayout
@@ -297,7 +302,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:gravity="center"
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
@@ -420,6 +425,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/grey_background"
+        android:paddingTop="5dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:gravity="center"
