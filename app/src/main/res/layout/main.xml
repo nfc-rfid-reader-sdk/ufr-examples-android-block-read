@@ -45,10 +45,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="@drawable/button_pattern_new"
+                android:background="@drawable/button_pattern"
                 android:text="READ\nDEVICE\nTYPE"
                 android:textSize="13sp"
-                android:textColor="#4a4a4a"
+                android:textColor="@drawable/button_text_color"
                 android:gravity="center"
                 android:scaleType="centerInside"
                 android:layout_gravity="center_vertical" />
