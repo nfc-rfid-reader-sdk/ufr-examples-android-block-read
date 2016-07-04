@@ -7,8 +7,8 @@ android {
         applicationId "net.dlogic.android.ufr.block_read_example"
         minSdkVersion 15
         targetSdkVersion 15
-        versionCode 25
-        versionName '2.5'
+        versionCode 26
+        versionName '2.6'
     }
     buildTypes {
         release {
