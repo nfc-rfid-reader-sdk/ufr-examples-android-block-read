@@ -224,7 +224,6 @@
                     android:singleLine="true"
                     android:focusable="true"
                     android:maxLength="2"
-                    android:typeface="monospace"
                     android:nextFocusDown="@+id/ebKey"
                     android:gravity="center" />
             </LinearLayout>
@@ -259,7 +258,6 @@
                     android:singleLine="true"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="16sp"
-                    android:typeface="monospace"
                     android:focusable="false"
                     android:enabled="true"
                     android:gravity="center" />
@@ -402,7 +400,6 @@
                     android:focusable="true"
                     android:singleLine="true"
                     android:maxLength="12"
-                    android:typeface="monospace"
                     android:imeOptions="actionDone"
                     android:gravity="center"
                     tools:ignore="Deprecated" />
@@ -438,7 +435,6 @@
                 android:inputType="none"
                 android:textColor="@android:color/darker_gray"
                 android:singleLine="true"
-                android:typeface="monospace"
                 android:enabled="true"
                 android:focusable="true"
                 android:ems="10"
@@ -478,7 +474,6 @@
                 android:enabled="true"
                 android:textColor="@android:color/darker_gray"
                 android:singleLine="true"
-                android:typeface="monospace"
                 android:inputType="none"
                 android:paddingLeft="115dp"
                 android:text="123456789123456"
@@ -512,7 +507,6 @@
                 android:gravity="left|center_vertical"
                 android:singleLine="true"
                 android:textColor="@android:color/darker_gray"
-                android:typeface="monospace"
                 android:enabled="true"
                 android:inputType="none"
                 android:paddingLeft="115dp"
