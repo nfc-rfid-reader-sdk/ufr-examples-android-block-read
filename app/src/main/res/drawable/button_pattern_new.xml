@@ -23,7 +23,7 @@
             android:shape="oval">
 
             <gradient
-                android:startColor="#6000000"
+                android:startColor="#06000000"
                 android:endColor="#26000000"
                 android:angle="270"/>
 
@@ -34,8 +34,10 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:shape="oval">
 
-            <solid
-                android:color="#ffffff"/>
+            <gradient
+                android:startColor="#ffffff"
+                android:endColor="#ececec"
+                android:angle="270"/>
 
         </shape>
     </item>
