@@ -291,8 +291,6 @@
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="12sp"
                     android:layout_marginRight="5dp"
                     android:gravity="center" />
             </LinearLayout>
@@ -335,8 +333,6 @@
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="12sp"
                     android:layout_marginRight="5dp"
                     android:gravity="center" />
             </LinearLayout>
@@ -367,8 +363,6 @@
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="12sp"
                     android:layout_marginRight="5dp"
                     android:gravity="center" />
             </LinearLayout>
@@ -459,7 +453,7 @@
                 android:layout_height="match_parent"
                 android:inputType="none"
                 android:text="@string/txt_card_id_sak"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="25dp"
                 android:textColor="#8fc546"
@@ -495,7 +489,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/txt_card_uid"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="25dp"
                 android:gravity="left|center_vertical"
@@ -530,7 +524,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/txt_block_data"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:gravity="left|center_vertical"
                 android:layout_marginLeft="25dp"
