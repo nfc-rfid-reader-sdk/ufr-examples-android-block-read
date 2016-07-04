@@ -439,7 +439,6 @@
                 android:focusable="true"
                 android:ems="10"
                 android:paddingLeft="115dp"
-                android:text="123456789123456"
                 tools:ignore="Deprecated"
                 android:layout_gravity="center_vertical" />
 
@@ -476,7 +475,6 @@
                 android:singleLine="true"
                 android:inputType="none"
                 android:paddingLeft="115dp"
-                android:text="123456789123456"
                 android:layout_gravity="center_vertical" />
 
             <TextView
@@ -510,7 +508,6 @@
                 android:enabled="true"
                 android:inputType="none"
                 android:paddingLeft="115dp"
-                android:text="123456789123456"
                 android:layout_gravity="center_vertical" />
 
             <TextView
