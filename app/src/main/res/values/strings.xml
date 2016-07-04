@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">DLogic uFR block read demo</string>
-	<string name="title_activity_main">DLogic uFR block read demo 2.6</string>
+	<string name="title_activity_main">DLogic uFR block read demo 2.5</string>
+	<string name="site_url">www.d-logic.net/nfc-rfid-reader-sdk/</string>
 
     <string name="default_value_block_addr">0</string>
     <string name="default_value_eb_key">FFFFFFFFFFFF</string>
