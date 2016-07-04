@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    android:layout_weight="5">
+    android:weightSum="100">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="15">
 
         <TextView
             android:layout_width="match_parent"
@@ -177,7 +177,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="5dp"
-        android:layout_weight="1">
+        android:layout_weight="30">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -427,7 +427,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:gravity="center"
-        android:layout_weight="1">
+        android:layout_weight="55">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -487,7 +487,7 @@
                 android:typeface="monospace"
                 android:inputType="none"
                 android:paddingLeft="115dp"
-                android:text="123456789123456123456"
+                android:text="123456789123456"
                 android:layout_gravity="center_vertical" />
 
             <TextView
