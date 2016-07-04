@@ -27,7 +27,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
@@ -38,92 +38,131 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1">
 
-            <Button
-                android:id="@+id/btnDeviceType"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/button_pattern"
-                android:text="READ\nDEVICE\nTYPE"
-                android:textSize="13sp"
-                android:textColor="@drawable/button_text_color"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:layout_gravity="center_vertical" />
+                android:layout_margin="5dp">
 
-            <Button
-                android:id="@+id/btnUiSignal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/button_pattern"
-                android:text="EMIT UI\nSIGNAL"
-                android:textSize="13sp"
-                android:textColor="@drawable/button_text_color"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:layout_gravity="center_vertical" />
+                <Button
+                    android:id="@+id/btnDeviceType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_pattern"
+                    android:text="READ\nDEVICE\nTYPE"
+                    android:textSize="13sp"
+                    android:textColor="@drawable/button_text_color"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/btnTagId"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/button_pattern"
-                android:text="GET\nCARD ID"
-                android:textSize="13sp"
-                android:textColor="@drawable/button_text_color"
-                android:gravity="center"
-                android:scaleType="centerInside" />
+                android:layout_margin="5dp">
+
+                <Button
+                    android:id="@+id/btnUiSignal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_pattern"
+                    android:text="EMIT UI\nSIGNAL"
+                    android:textSize="13sp"
+                    android:textColor="@drawable/button_text_color"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <Button
+                    android:id="@+id/btnTagId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_pattern"
+                    android:text="GET\nCARD ID"
+                    android:textSize="13sp"
+                    android:textColor="@drawable/button_text_color"
+                    android:gravity="center"
+                    android:scaleType="centerInside" />
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1">
 
-            <Button
-                android:id="@+id/btnBlockRead"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/button_pattern"
-                android:text="READ\nBLOCK"
-                android:textSize="13sp"
-                android:textColor="@drawable/button_text_color"
-                android:gravity="center"
-                android:scaleType="centerInside" />
+                android:layout_margin="5dp">
 
-            <Button
-                android:id="@+id/btnEnterSleep"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/button_pattern"
-                android:text="ENTER\nSLEEP"
-                android:textSize="13sp"
-                android:textColor="@drawable/button_text_color"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:layout_gravity="center_vertical" />
+                <Button
+                    android:id="@+id/btnBlockRead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_pattern"
+                    android:text="READ\nBLOCK"
+                    android:textSize="13sp"
+                    android:textColor="@drawable/button_text_color"
+                    android:gravity="center"
+                    android:scaleType="centerInside" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/btnLeaveSleep"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/button_pattern"
-                android:text="LEAVE\nSLEEP"
-                android:textSize="13sp"
-                android:textColor="@drawable/button_text_color"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:layout_gravity="center_vertical" />
+                android:layout_margin="5dp">
+
+                <Button
+                    android:id="@+id/btnEnterSleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_pattern"
+                    android:text="ENTER\nSLEEP"
+                    android:textSize="13sp"
+                    android:textColor="@drawable/button_text_color"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <Button
+                    android:id="@+id/btnLeaveSleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_pattern"
+                    android:text="LEAVE\nSLEEP"
+                    android:textSize="13sp"
+                    android:textColor="@drawable/button_text_color"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
@@ -137,8 +176,7 @@
         android:paddingRight="10dp"
         android:tag="configure block"
         android:orientation="vertical"
-        android:weightSum="1"
-        android:layout_weight="1"
+        android:weightSum="4"
         android:gravity="center">
 
         <LinearLayout
@@ -147,7 +185,8 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:paddingBottom="3dp"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:layout_weight="1">
 
 
             <LinearLayout
@@ -267,7 +306,8 @@
             android:gravity="center"
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -382,22 +422,23 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/grey_background"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:layout_weight="1"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_weight="1">
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
 
             <EditText
                 android:id="@+id/ebTagId"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autoText="true"
                 android:background="@drawable/text_view_lg"
@@ -408,7 +449,8 @@
                 android:enabled="true"
                 android:focusable="true"
                 android:ems="10"
-                tools:ignore="Deprecated" />
+                tools:ignore="Deprecated"
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/labelTagId"
@@ -420,19 +462,21 @@
                 android:textStyle="bold"
                 android:layout_marginLeft="25dp"
                 android:textColor="#8fc546"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:gravity="center" />
 
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
 
             <EditText
                 android:id="@+id/ebTagUid"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/text_view_lg"
                 android:focusableInTouchMode="false"
                 android:gravity="left|center_vertical"
@@ -440,7 +484,8 @@
                 android:textColor="@android:color/darker_gray"
                 android:singleLine="true"
                 android:typeface="monospace"
-                android:inputType="none" />
+                android:inputType="none"
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/labelCardUid"
@@ -458,12 +503,13 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal">
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_weight="1">
 
             <EditText
                 android:id="@+id/ebBlockData"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/text_view_lg"
                 android:focusableInTouchMode="false"
                 android:gravity="left|center_vertical"
@@ -471,7 +517,8 @@
                 android:textColor="@android:color/darker_gray"
                 android:typeface="monospace"
                 android:enabled="true"
-                android:inputType="none" />
+                android:inputType="none"
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/labelBlockData"
