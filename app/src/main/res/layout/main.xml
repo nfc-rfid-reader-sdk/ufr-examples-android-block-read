@@ -423,6 +423,7 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="5dp"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1">
 
@@ -448,7 +449,7 @@
                 android:layout_height="match_parent"
                 android:inputType="none"
                 android:text="@string/txt_card_id_sak"
-                android:textSize="10sp"
+                android:textSize="8sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="25dp"
                 android:textColor="#8fc546"
@@ -482,7 +483,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/txt_card_uid"
-                android:textSize="10sp"
+                android:textSize="8sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="25dp"
                 android:gravity="left|center_vertical"
@@ -515,7 +516,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/txt_block_data"
-                android:textSize="10sp"
+                android:textSize="8sp"
                 android:textStyle="bold"
                 android:gravity="left|center_vertical"
                 android:layout_marginLeft="25dp"
