@@ -11,8 +11,8 @@
                 android:angle="270"/>
 
             <size
-                android:width="88dp"
-                android:height="88dp"/>
+                android:width="72dp"
+                android:height="72dp"/>
 
         </shape>
     </item>
