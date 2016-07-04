@@ -58,7 +58,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="@drawable/icon_emit_ui_signal"
+                android:background="@drawable/button_pattern"
+                android:text="EMIT UI\nSIGNAL"
+                android:textSize="13sp"
+                android:textColor="@drawable/button_text_color"
                 android:gravity="center"
                 android:scaleType="centerInside"
                 android:layout_gravity="center_vertical" />
@@ -68,7 +71,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="@drawable/icon_get_card_id"
+                android:background="@drawable/button_pattern"
+                android:text="GET\nCARD ID"
+                android:textSize="13sp"
+                android:textColor="@drawable/button_text_color"
                 android:gravity="center"
                 android:scaleType="centerInside" />
 
@@ -85,7 +91,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="@drawable/icon_read_block"
+                android:background="@drawable/button_pattern"
+                android:text="READ\nBLOCK"
+                android:textSize="13sp"
+                android:textColor="@drawable/button_text_color"
                 android:gravity="center"
                 android:scaleType="centerInside" />
 
@@ -94,7 +103,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="@drawable/icon_enter_sleep"
+                android:background="@drawable/button_pattern"
+                android:text="ENTER\nSLEEP"
+                android:textSize="13sp"
+                android:textColor="@drawable/button_text_color"
                 android:gravity="center"
                 android:scaleType="centerInside"
                 android:layout_gravity="center_vertical" />
@@ -104,7 +116,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="@drawable/icon_leave_sleep"
+                android:background="@drawable/button_pattern"
+                android:text="LEAVE\nSLEEP"
+                android:textSize="13sp"
+                android:textColor="@drawable/button_text_color"
                 android:gravity="center"
                 android:scaleType="centerInside"
                 android:layout_gravity="center_vertical" />
