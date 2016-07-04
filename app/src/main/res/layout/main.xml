@@ -38,7 +38,6 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="98dp"
             android:gravity="center"
             android:layout_weight="1"
             android:paddingLeft="5dp"
@@ -105,7 +104,6 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="95dp"
             android:gravity="center"
             android:layout_weight="1"
             android:paddingRight="5dp"
@@ -178,15 +176,17 @@
         android:tag="configure block"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:layout_weight="1">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
             android:paddingBottom="3dp"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:layout_weight="1">
 
 
             <LinearLayout
@@ -219,7 +219,7 @@
                     android:layout_marginRight="5dp"
                     android:text="@string/default_value_block_addr"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:enabled="true"
                     android:singleLine="true"
                     android:focusable="true"
@@ -286,13 +286,13 @@
 
                 <Spinner
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/spnLightMode"
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:layout_marginRight="5dp"
                     android:gravity="center" />
             </LinearLayout>
@@ -301,8 +301,8 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
@@ -330,13 +330,13 @@
 
                 <Spinner
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/spnBeepMode"
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:layout_marginRight="5dp"
                     android:gravity="center" />
             </LinearLayout>
@@ -362,13 +362,13 @@
 
                 <Spinner
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/spnAuthenticationMode"
                     android:background="@drawable/text_view_sm"
                     android:layout_marginLeft="5dp"
                     android:inputType="none"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:layout_marginRight="5dp"
                     android:gravity="center" />
             </LinearLayout>
@@ -398,13 +398,12 @@
                     android:layout_height="wrap_content"
                     android:autoText="true"
                     android:background="@drawable/text_view_sm"
-                    android:ems="10"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:inputType="text"
                     android:text="@string/default_value_eb_key"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:enabled="true"
                     android:focusable="true"
                     android:singleLine="true"
@@ -425,7 +424,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/grey_background"
-        android:paddingTop="5dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:gravity="center"
@@ -450,6 +448,8 @@
                 android:enabled="true"
                 android:focusable="true"
                 android:ems="10"
+                android:paddingLeft="115dp"
+                android:text="123456789123456"
                 tools:ignore="Deprecated"
                 android:layout_gravity="center_vertical" />
 
@@ -486,6 +486,8 @@
                 android:singleLine="true"
                 android:typeface="monospace"
                 android:inputType="none"
+                android:paddingLeft="115dp"
+                android:text="123456789123456123456"
                 android:layout_gravity="center_vertical" />
 
             <TextView
@@ -519,6 +521,8 @@
                 android:typeface="monospace"
                 android:enabled="true"
                 android:inputType="none"
+                android:paddingLeft="115dp"
+                android:text="123456789123456"
                 android:layout_gravity="center_vertical" />
 
             <TextView
