@@ -384,20 +384,25 @@ public class Main extends Activity {
 
                     switch (local_task.taskCode) {
                         case Consts.TASK_CONNECT:
-                            //while (!device.readerStillConnected()) {
+                            Task peek_task = mCommandQueue.peek();
+                            boolean next_task_is_not_disconnect = peek_task == null;
+                            if (!next_task_is_not_disconnect) {
+                                next_task_is_not_disconnect = peek_task.taskCode != Consts.TASK_DISCONNECT;
+                            }
+                            while (!device.readerStillConnected() && next_task_is_not_disconnect) {
                                 try {
                                     device.open();
                                     connected = true;
                                     handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_CONNECTED));
                                 } catch (Exception e) {
                                     handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR_QUIETLY, e.getMessage()));
-                                /*    try {
-                                        Thread.sleep(1000);
+                                    try {
+                                        Thread.sleep(500);
                                     } catch (InterruptedException ie) {
                                         ie.printStackTrace();
-                                    }*/
+                                    }
                                 }
-                            //}
+                            }
                             break;
 
                         case Consts.TASK_DISCONNECT:
