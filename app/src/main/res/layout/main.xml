@@ -421,7 +421,7 @@
         android:layout_weight="60">
 
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
             android:layout_gravity="center_horizontal"
@@ -434,13 +434,16 @@
                 android:autoText="true"
                 android:background="@drawable/text_view_lg"
                 android:inputType="none"
+                android:text="12345678901234567890"
+                android:textSize="14sp"
                 android:textColor="@android:color/darker_gray"
                 android:singleLine="true"
                 android:enabled="true"
                 android:focusable="true"
                 android:ems="10"
-                android:paddingLeft="115dp"
                 tools:ignore="Deprecated"
+                android:paddingRight="20dp"
+                android:gravity="center_vertical|end"
                 android:layout_gravity="center_vertical" />
 
             <TextView
@@ -453,13 +456,12 @@
                 android:textStyle="bold"
                 android:layout_marginLeft="25dp"
                 android:textColor="#8fc546"
-                android:layout_gravity="center_vertical"
-                android:gravity="center" />
+                android:gravity="center_vertical" />
 
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1">
@@ -470,12 +472,14 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_view_lg"
                 android:focusableInTouchMode="false"
-                android:gravity="left|center_vertical"
                 android:enabled="true"
+                android:text="12345678901234567890"
+                android:textSize="14sp"
                 android:textColor="@android:color/darker_gray"
                 android:singleLine="true"
                 android:inputType="none"
-                android:paddingLeft="115dp"
+                android:paddingRight="20dp"
+                android:gravity="center_vertical|end"
                 android:layout_gravity="center_vertical" />
 
             <TextView
@@ -492,9 +496,9 @@
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1">
 
             <EditText
@@ -503,13 +507,15 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_view_lg"
                 android:focusableInTouchMode="false"
-                android:gravity="left|center_vertical"
                 android:singleLine="true"
+                android:text="12345678901234567890123456789012"
+                android:textSize="12sp"
                 android:textColor="@android:color/darker_gray"
                 android:enabled="true"
                 android:inputType="none"
-                android:paddingLeft="115dp"
-                android:layout_gravity="center_vertical" />
+                android:paddingRight="20dp"
+                android:gravity="center_vertical|end"
+                android:layout_gravity="center_vertical"/>
 
             <TextView
                 android:id="@+id/labelBlockData"
