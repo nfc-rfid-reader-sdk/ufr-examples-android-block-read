@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -37,17 +38,18 @@
                 android:id="@+id/ebBlockAddr"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:background="#708070"
-                android:inputType="number"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="0"
+                android:background="#708070"
                 android:enabled="true"
                 android:focusable="true"
-                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:inputType="number"
                 android:maxLength="2"
-                android:typeface="monospace"
-                android:nextFocusDown="@+id/ebKey" />
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:text="0"
+                android:typeface="monospace" />
 
             <TextView
                 android:id="@+id/editText4"
@@ -65,15 +67,16 @@
                 android:id="@+id/ebDeviceType"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:background="#708070"
-                android:ems="10"
-                android:inputType="none"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:singleLine="true"
-                android:typeface="monospace"
+                android:background="#708070"
+                android:ems="10"
+                android:enabled="true"
                 android:focusable="false"
-                android:enabled="true" />
+                android:imeOptions="actionNone"
+                android:inputType="none"
+                android:maxLines="1"
+                android:typeface="monospace" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -148,20 +151,18 @@
                 android:id="@+id/ebKey"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:autoText="true"
-                android:background="#708070"
-                android:editable="true"
-                android:ems="10"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:inputType="text"
-                android:text="FFFFFFFFFFFF"
+                android:background="#708070"
                 android:enabled="true"
                 android:focusable="true"
-                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:inputType="text"
                 android:maxLength="12"
-                android:typeface="monospace"
-                android:imeOptions="actionDone"/>
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:text="FFFFFFFFFFFF"
+                android:typeface="monospace" />
 
             <TextView
                 android:id="@+id/editText5"
@@ -179,17 +180,17 @@
                 android:id="@+id/ebTagId"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:autoText="true"
-                android:background="#708070"
-                android:editable="false"
-                android:ems="10"
-                android:inputType="none"
+                android:focusable="false"
+                android:layout_marginBottom="0dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="0dp"
-                android:singleLine="true"
-                android:typeface="monospace"
-                android:enabled="true" />
+                android:background="#708070"
+                android:ems="10"
+                android:enabled="true"
+                android:imeOptions="actionNone"
+                android:inputType="none"
+                android:maxLines="1"
+                android:typeface="monospace" />
 
         </LinearLayout>
 
@@ -200,99 +201,121 @@
             android:layout_height="fill_parent"></LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="180dp"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="1">
 
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnDeviceType"
-                    android:layout_width="0dp"
-                    android:layout_height="85dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="3dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Read Device Type"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical" />
+                    android:text="Read Device Type" />
 
                 <Button
                     android:id="@+id/btnUiSignal"
-                    android:layout_width="0dp"
-                    android:layout_height="85dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="3dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Emit UI Signal"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical" />
+                    android:text="Emit UI Signal" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.64"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnTagId"
                     android:layout_width="0dp"
-                    android:layout_height="85dp"
+                    android:layout_height="match_parent"
                     android:layout_margin="3dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Get Card Id"
-                    android:layout_weight="1" />
+                    android:text="Get Card Id" />
 
-                <Button
-                    android:id="@+id/btnBlockRead"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="85dp"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/button_pattern"
-                    android:gravity="center"
-                    android:scaleType="centerInside"
-                    android:text="Read Block"
-                    android:layout_weight="1" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btnBlockRead"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_pattern"
+                        android:gravity="center"
+                        android:scaleType="centerInside"
+                        android:text="Block Read" />
+
+                    <Button
+                        android:id="@+id/btnBlockWrite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_pattern"
+                        android:gravity="center"
+                        android:scaleType="centerInside"
+                        android:text="Block Write" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnEnterSleep"
                     android:layout_width="0dp"
                     android:layout_height="85dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="3dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Enter Sleep"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical" />
+                    android:text="Enter Sleep" />
 
                 <Button
                     android:id="@+id/btnLeaveSleep"
                     android:layout_width="0dp"
                     android:layout_height="85dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="3dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_pattern"
                     android:gravity="center"
                     android:scaleType="centerInside"
-                    android:text="Leave Sleep"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical" />
+                    android:text="Leave Sleep" />
             </LinearLayout>
 
         </LinearLayout>
@@ -327,15 +350,18 @@
             android:id="@+id/ebTagUid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#708070"
-            android:focusableInTouchMode="false"
-            android:gravity="left|center_vertical"
-            android:enabled="true"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
             android:layout_marginTop="0dp"
-            android:singleLine="true"
+            android:background="#708070"
+            android:enabled="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="left|center_vertical"
+            android:imeOptions="actionNone"
+            android:inputType="none"
+            android:maxLines="1"
             android:typeface="monospace" />
 
     </LinearLayout>
@@ -368,16 +394,19 @@
             android:id="@+id/ebBlockData"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#708070"
-            android:focusableInTouchMode="false"
-            android:gravity="left|center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
-            android:singleLine="true"
-            android:typeface="monospace"
-            android:enabled="true" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#708070"
+            android:enabled="true"
+            android:focusable="true"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="32"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:typeface="monospace" />
 
     </LinearLayout>
 

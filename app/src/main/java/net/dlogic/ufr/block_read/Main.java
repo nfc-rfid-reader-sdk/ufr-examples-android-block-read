@@ -33,6 +33,7 @@ public class Main extends Activity {
     static Button btnReaderType;
     static Button btnTagId;
     static Button btnBlockRead;
+    static Button btnBlockWrite;
     static Button btnUiSignal;
     static Button btnEnterSleep;
     static Button btnLeaveSleep;
@@ -54,6 +55,7 @@ public class Main extends Activity {
     private byte block_addr;
     static final byte[] default_key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
     static byte[] key = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF};
+    static byte[] mDataForWrite = new byte[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     static ConcurrentLinkedQueue<Task> mCommandQueue = new ConcurrentLinkedQueue<Task>();
     ReaderThread mReaderThread;
 
@@ -97,7 +99,6 @@ public class Main extends Activity {
         ebTagUid = (EditText) findViewById(R.id.ebTagUid);
         ebTagUid.setInputType(0);
         ebBlockData = (EditText) findViewById(R.id.ebBlockData);
-        ebBlockData.setInputType(0);
         ebKey = (EditText) findViewById(R.id.ebKey);
 
 //        btnOpen = (Button) findViewById(R.id.btnOpen);
@@ -105,6 +106,7 @@ public class Main extends Activity {
         btnReaderType = (Button) findViewById(R.id.btnDeviceType);
         btnTagId = (Button) findViewById(R.id.btnTagId);
         btnBlockRead = (Button) findViewById(R.id.btnBlockRead);
+        btnBlockWrite = (Button) findViewById(R.id.btnBlockWrite);
         btnUiSignal = (Button) findViewById(R.id.btnUiSignal);
         btnEnterSleep = (Button) findViewById(R.id.btnEnterSleep);
         btnLeaveSleep = (Button) findViewById(R.id.btnLeaveSleep);
@@ -225,6 +227,33 @@ public class Main extends Activity {
                 }
             }
         });
+        btnBlockWrite.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (device.readerStillConnected()) {
+                    if (Tools.isNumeric(ebBlockAddr.getText().toString())) {
+                        int i = Integer.parseInt(ebBlockAddr.getText().toString());
+                        if ((i >= 0) && (i < Consts.MAX_BLOCK_ADDR)) {
+                            block_addr = (byte) i;
+                            if (setKey(ebKey.getText().toString()) && setDataForWrite(ebBlockData.getText().toString())) {
+                                try {
+                                    mCommandQueue.add(new Task(Consts.TASK_BLOCK_WRITE, block_addr, (byte)authenticationMode, getKey(), getDataForWrite()));
+                                } catch (Exception e) {
+                                    Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(context, "Wrong key format. Key must be HEX string 6 bytes long.", Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            Toast.makeText(context, "Wrong block address.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(context, "Block address must be a number.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(context, "Device not connected.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         btnUiSignal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -271,6 +300,10 @@ public class Main extends Activity {
         return key;
     }
 
+    private static byte[] getDataForWrite() {
+        return mDataForWrite;
+    }
+
     private static boolean setKey(String keyHexStr) {
 
         if (keyHexStr.length() != 12) {
@@ -282,6 +315,21 @@ public class Main extends Activity {
         for (int i = 0; i < 12; i += 2) {
             key[i / 2] = (byte) ((Character.digit(keyHexStr.charAt(i), 16) << 4)
                     + Character.digit(keyHexStr.charAt(i+1), 16));
+        }
+        return true;
+    }
+
+    private static boolean setDataForWrite(String dataHexStr) {
+
+        if (dataHexStr.length() != 32) {
+            return false;
+        }
+        if (!dataHexStr.matches("[0-9A-Fa-f]+")) {
+            return false;
+        }
+        for (int i = 0; i < 32; i += 2) {
+            mDataForWrite[i / 2] = (byte) ((Character.digit(dataHexStr.charAt(i), 16) << 4)
+                    + Character.digit(dataHexStr.charAt(i+1), 16));
         }
         return true;
     }
@@ -312,6 +360,10 @@ public class Main extends Activity {
                 case Consts.RESPONSE_BLOCK_READ:
                     ebBlockData.setText(Tools.byteArr2Str((byte[]) msg.obj));
                     Toast.makeText(context, "Block successfully read.", Toast.LENGTH_SHORT).show();
+                    break;
+
+                case Consts.RESPONSE_SUCESS:
+                    Toast.makeText(context, "Operation completed successfully.", Toast.LENGTH_SHORT).show();
                     break;
 
                 case Consts.RESPONSE_DISCONNECTED:
@@ -349,12 +401,14 @@ public class Main extends Activity {
         public static final int TASK_EMIT_UI_SIGNAL = 6;
         public static final int TASK_ENTER_SLEEP = 7;
         public static final int TASK_LEAVE_SLEEP = 8;
+        public static final int TASK_BLOCK_WRITE = 9;
 
         public static final int RESPONSE_CONNECTED = 100;
         public static final int RESPONSE_READER_TYPE = 101;
         public static final int RESPONSE_CARD_ID = 102;
         public static final int RESPONSE_BLOCK_READ = 103;
         public static final int RESPONSE_DISCONNECTED = 104;
+        public static final int RESPONSE_SUCESS = 105;
 
         public static final int RESPONSE_ERROR = 400;
         public static final int RESPONSE_ERROR_QUIETLY = 401;
@@ -447,6 +501,18 @@ public class Main extends Activity {
                             }
                             break;
 
+                        case Consts.TASK_BLOCK_WRITE:
+                            if (connected) {
+                                try {
+                                    device.blockWrite(local_task.byte_arr_param2/*getData()*/, local_task.byte_param1/*block_addr*/,
+                                            local_task.byte_param2/*authenticationMode*/, local_task.byte_arr_param1/*getKey()*/);
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_SUCESS));
+                                } catch (Exception e) {
+                                    handler.sendMessage(handler.obtainMessage(Consts.RESPONSE_ERROR, e.getMessage()));
+                                }
+                            }
+                            break;
+
                         case Consts.TASK_EMIT_UI_SIGNAL:
                             if (connected) {
                                 try {
@@ -489,6 +555,7 @@ public class Main extends Activity {
         int taskCode;
         byte byte_param1, byte_param2;
         byte[] byte_arr_param1;
+        byte[] byte_arr_param2;
 
         public Task(int code) {
             taskCode = code;
@@ -503,6 +570,13 @@ public class Main extends Activity {
             byte_param1 = p1;
             byte_param2 = p2;
             byte_arr_param1 = pa1;
+        }
+        public Task(int code, byte p1, byte p2, byte[] pa1, byte[] pa2) {
+            taskCode = code;
+            byte_param1 = p1;
+            byte_param2 = p2;
+            byte_arr_param1 = pa1;
+            byte_arr_param2 = pa2;
         }
     }
 
