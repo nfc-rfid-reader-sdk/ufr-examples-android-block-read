@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">DLogic uFR block read demo</string>
-	<string name="title_activity_main">DLogic uFR block read demo 2.7</string>
+    <string name="app_name">NFC card Block Read</string>
+	<string name="title_activity_main">NFC card Block Read 2.7</string>
+	<string name="site_url">www.d-logic.net/nfc-rfid-reader-sdk/</string>
+
+    <string name="default_value_block_addr">0</string>
+    <string name="default_value_eb_key">FFFFFFFFFFFF</string>
 
 	<string-array name="light_signal_modes">
 		<item>None</item>
@@ -28,4 +32,22 @@
 		<item>96</item>
 		<item>97</item>
 	</integer-array>
+
+	<string name="txt_block_addr">Block Addr:</string>
+    <string name="txt_device_type">Device type:</string>
+    <string name="txt_light_signal_mode">Light signal mode:</string>
+    <string name="txt_beep_signal_mode">Beep signal mode:</string>
+    <string name="txt_auth_mode">Auth. mode:</string>
+    <string name="txt_key">Key:</string>
+    <string name="txt_card_id_sak">CARD ID (SAK):</string>
+    <string name="txt_card_uid">CARD UID:</string>
+    <string name="txt_block_data">BLOCK DATA:</string>
+
+	<string name="txt_btn_read_device_type">READ\nDEVICE\nTYPE</string>
+	<string name="txt_btn_emit_ui_signal">EMIT UI\nSIGNAL</string>
+	<string name="txt_btn_get_card_id">GET\nCARD ID</string>
+	<string name="txt_btn_read_block">READ\nBLOCK</string>
+	<string name="txt_btn_write_block">WRITE\nBLOCK</string>
+	<string name="txt_btn_enter_sleep">ENTER\nSLEEP</string>
+	<string name="txt_btn_leave_sleep">LEAVE\nSLEEP</string>
 </resources>

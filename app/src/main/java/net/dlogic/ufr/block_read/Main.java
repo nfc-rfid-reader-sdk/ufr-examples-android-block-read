@@ -2,7 +2,9 @@ package net.dlogic.ufr.block_read;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import net.dlogic.ufr.lib.DlReader;
@@ -37,6 +40,7 @@ public class Main extends Activity {
     static Button btnUiSignal;
     static Button btnEnterSleep;
     static Button btnLeaveSleep;
+    static TextView txtSiteUrl;
     static EditText ebBlockAddr;
     static EditText ebDeviceType;
     static EditText ebTagId;
@@ -91,6 +95,18 @@ public class Main extends Activity {
         authModes = res.getIntArray(R.array.authentication_mode_values);
 
         // Get references to UI widgets:
+        txtSiteUrl = (TextView) findViewById(R.id.siteLogo);
+
+        txtSiteUrl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri siteUri = Uri.parse("http://" + getResources().getString(R.string.site_url));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, siteUri);
+
+                startActivity(browserIntent);
+            }
+        });
+
         ebBlockAddr = (EditText) findViewById(R.id.ebBlockAddr);
         ebDeviceType = (EditText) findViewById(R.id.ebDeviceType);
         ebDeviceType.setInputType(0);
