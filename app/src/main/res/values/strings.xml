@@ -47,6 +47,7 @@
 	<string name="txt_btn_emit_ui_signal">EMIT UI\nSIGNAL</string>
 	<string name="txt_btn_get_card_id">GET\nCARD ID</string>
 	<string name="txt_btn_read_block">READ\nBLOCK</string>
+	<string name="txt_btn_write_block">WRITE\nBLOCK</string>
 	<string name="txt_btn_enter_sleep">ENTER\nSLEEP</string>
 	<string name="txt_btn_leave_sleep">LEAVE\nSLEEP</string>
 </resources>

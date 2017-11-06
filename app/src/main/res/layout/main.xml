@@ -110,9 +110,9 @@
             android:paddingLeft="5dp">
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:padding="5dp">
 
                 <Button
@@ -120,11 +120,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_pattern"
-                    android:text="@string/txt_btn_read_block"
-                    android:textSize="12sp"
-                    android:textColor="@drawable/button_text_color"
                     android:gravity="center"
-                    android:scaleType="centerInside" />
+                    android:scaleType="centerInside"
+                    android:text="@string/txt_btn_read_block"
+                    android:textColor="@drawable/button_text_color"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/btnBlockWrite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_pattern"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:text="@string/txt_btn_write_block"
+                    android:textColor="@drawable/button_text_color"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
