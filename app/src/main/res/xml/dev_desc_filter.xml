@@ -8,4 +8,10 @@
     <usb-device description="uFR XR CLASSIC" />
     <usb-device description="uFR XRC CLASSIC" />
     <usb-device description="uFR XRC  CLASSIC" />
+    <usb-device description="uFR ADVANCE CS RF AMP" />
+    <usb-device description="uFR ADVANCE CS" />
+    <usb-device description="uFR CLASSIC CS RF AMP" />
+    <usb-device description="uFR CLASSIC CS" />
+    <usb-device description="uFR PRO CS RF AMP" />
+    <usb-device description="uFR PRO CS" />
 </resources>
