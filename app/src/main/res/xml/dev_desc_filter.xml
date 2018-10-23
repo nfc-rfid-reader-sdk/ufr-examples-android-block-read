@@ -14,4 +14,10 @@
     <usb-device description="uFR CLASSIC CS" />
     <usb-device description="uFR PRO CS RF AMP" />
     <usb-device description="uFR PRO CS" />
+    <usb-device description="uFR Nano Plus" />
+    <usb-device description="uFR Nano PRO Plus" />
+    <usb-device description="uFR Classic CS Plus" />
+    <usb-device description="uFR Classic CS PRO Plus" />
+    <usb-device description="uFR Classic CS Plus RF AMP" />
+    <usb-device description="uFR Classic PRO Plus RF AMP" />
 </resources>

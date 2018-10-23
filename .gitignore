@@ -1,7 +1,6 @@
 .gradle
 .idea
 build
-/*.iml
 /local.properties
-*.iml
 /app/libs/d2xx.jar
+*.iml
