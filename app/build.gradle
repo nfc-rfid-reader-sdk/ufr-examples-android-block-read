@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "net.dlogic.ufr.block_read"
+        applicationId 'net.dlogic.android.ufr.block_read_example'
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 30
